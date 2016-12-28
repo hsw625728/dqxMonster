@@ -70,6 +70,7 @@
 
 - (void)initData{
     _gMonsterInfo = [[NSMutableDictionary alloc] init];
+    _gMonsterCategroy = [[NSMutableDictionary alloc] init];
     NSString* sourceInfo = MONSTER_SOURCE_INFO;
     NSArray *monsterInfoStr = [sourceInfo componentsSeparatedByString:@"|日文名="];
     
@@ -198,10 +199,20 @@
         right = [pairs objectForKey:@"背景2"];
         detailInfo.desc2 = (right == nil ? @"" : right);
         
-        
+        //怪物详细数据列表
         [_gMonsterInfo setObject:detailInfo forKey:detailInfo.name];
+        
+        //建立怪物名称索引
+        NSMutableArray *monsterSet;
+        monsterSet = [_gMonsterCategroy objectForKey:detailInfo.category];
+        if (monsterSet == nil)
+        {
+            monsterSet = [[NSMutableArray alloc] init];
+        }
+        [monsterSet addObject:detailInfo.name];
+        [_gMonsterCategroy setObject:monsterSet forKey:detailInfo.category];
     }
-    
+    NSString * spider = @"";
 }
 
 @end

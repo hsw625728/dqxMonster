@@ -108,6 +108,9 @@ NSString *const kDMTableMonsterListCellID = @"kDMTableMonsterListCellID";
     
 }
 
-
+-(void)setMonsterName:(NSString*)name
+{
+    _labelSkillTitle.text = name;
+}
 
 @end
