@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "dqxMonster/Models/DMMonsterDetailInfo.m"
+            timestampString = "504601743.832229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "-initMine:nameJap:name:density:weakLevel:hp:atk:arm:exp:expJap:gold:weight:fireRes:iceRes:thunderRes:earthRes:windRes:darkRes:lightRes:shuiRes:hunRes:meiRes:maRes:zhongRes:huanRes:fengRes:daRes:shuaiRes:shuRes:kongRes:jiRes:nengRes:naiRes:gongRes:fangRes:xingRes:zhongliangRes:jifeiRes:daduanRes:weightCheck1:weightCheckHalf1:weightCheck2:weightCheckHalf2:weightCheck3:weightCheckHalf3:weightCheck4:weightCheckHalf4:weightCheck5:weightCheckHalf5:dropItem:dropItemRare:skill:desc1:desc2:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

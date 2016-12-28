@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		580603BC1E135DBC00E127C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603BB1E135DBC00E127C9 /* main.m */; };
+		580603BF1E135DBC00E127C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603BE1E135DBC00E127C9 /* AppDelegate.m */; };
+		580603C51E135DBC00E127C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580603C31E135DBC00E127C9 /* Main.storyboard */; };
+		580603C71E135DBC00E127C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580603C61E135DBC00E127C9 /* Assets.xcassets */; };
+		580603CA1E135DBC00E127C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580603C81E135DBC00E127C9 /* LaunchScreen.storyboard */; };
+		580603DA1E13640E00E127C9 /* DMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603D91E13640E00E127C9 /* DMTabBarController.m */; };
+		580603E01E13643300E127C9 /* AppHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603DD1E13643300E127C9 /* AppHelpViewController.m */; };
+		580603E11E13643300E127C9 /* DMAppSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603DF1E13643300E127C9 /* DMAppSettingViewController.m */; };
+		580603E71E13646C00E127C9 /* DMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603E61E13646C00E127C9 /* DMBaseViewController.m */; };
+		580603EF1E1364C100E127C9 /* UIImage+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603EE1E1364C100E127C9 /* UIImage+Common.m */; };
+		580603FA1E13653C00E127C9 /* DMBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603F51E13653C00E127C9 /* DMBaseCell.m */; };
+		580603FC1E13653C00E127C9 /* DMTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603F91E13653C00E127C9 /* DMTableHeaderView.m */; };
+		580603FF1E13654900E127C9 /* DMTableAppSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 580603FE1E13654900E127C9 /* DMTableAppSettingCell.m */; };
+		580604031E1365B000E127C9 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 580604021E1365B000E127C9 /* DZNSegmentedControl.m */; };
+		580604061E136AB700E127C9 /* DMMonsterListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580604051E136AB700E127C9 /* DMMonsterListViewController.m */; };
+		580604091E136D7400E127C9 /* DMMonsterDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 580604081E136D7400E127C9 /* DMMonsterDetailInfo.m */; };
+		580604121E13931C00E127C9 /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 580604111E13931C00E127C9 /* libGDTMobSDK.a */; };
+		580604141E13932800E127C9 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580604131E13932800E127C9 /* AdSupport.framework */; };
+		580604161E13933100E127C9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580604151E13933100E127C9 /* CoreLocation.framework */; };
+		580604181E13933E00E127C9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580604171E13933E00E127C9 /* QuartzCore.framework */; };
+		5806041A1E13935E00E127C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580604191E13935E00E127C9 /* SystemConfiguration.framework */; };
+		5806041C1E13936500E127C9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5806041B1E13936500E127C9 /* CoreTelephony.framework */; };
+		5806041E1E13937200E127C9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5806041D1E13937200E127C9 /* libz.tbd */; };
+		580604201E13937900E127C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5806041F1E13937900E127C9 /* Security.framework */; };
+		580604221E13938000E127C9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580604211E13938000E127C9 /* StoreKit.framework */; };
+		580604251E13956500E127C9 /* DMMonsterOptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580604241E13956500E127C9 /* DMMonsterOptViewController.m */; };
+		580604281E139A4D00E127C9 /* DMTableMonsterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 580604271E139A4D00E127C9 /* DMTableMonsterListCell.m */; };
+		F9241F6ED493D7E0CA7F0C9D /* libPods-dqxMonster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA9651918A7B8E8CF4AED2 /* libPods-dqxMonster.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		580603B71E135DBC00E127C9 /* dqxMonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dqxMonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		580603BB1E135DBC00E127C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		580603BD1E135DBC00E127C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		580603BE1E135DBC00E127C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		580603C41E135DBC00E127C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		580603C61E135DBC00E127C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		580603C91E135DBC00E127C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		580603CB1E135DBC00E127C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		580603D11E1362A500E127C9 /* dqxMonster.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dqxMonster.pch; sourceTree = "<group>"; };
+		580603D81E13640E00E127C9 /* DMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMTabBarController.h; path = ViewControllers/TabBar/DMTabBarController.h; sourceTree = "<group>"; };
+		580603D91E13640E00E127C9 /* DMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTabBarController.m; path = ViewControllers/TabBar/DMTabBarController.m; sourceTree = "<group>"; };
+		580603DC1E13643300E127C9 /* AppHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppHelpViewController.h; path = ViewControllers/AppSetting/AppHelpViewController.h; sourceTree = "<group>"; };
+		580603DD1E13643300E127C9 /* AppHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppHelpViewController.m; path = ViewControllers/AppSetting/AppHelpViewController.m; sourceTree = "<group>"; };
+		580603DE1E13643300E127C9 /* DMAppSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMAppSettingViewController.h; path = ViewControllers/AppSetting/DMAppSettingViewController.h; sourceTree = "<group>"; };
+		580603DF1E13643300E127C9 /* DMAppSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMAppSettingViewController.m; path = ViewControllers/AppSetting/DMAppSettingViewController.m; sourceTree = "<group>"; };
+		580603E51E13646C00E127C9 /* DMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMBaseViewController.h; path = ViewControllers/Base/DMBaseViewController.h; sourceTree = "<group>"; };
+		580603E61E13646C00E127C9 /* DMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMBaseViewController.m; path = ViewControllers/Base/DMBaseViewController.m; sourceTree = "<group>"; };
+		580603EB1E1364B400E127C9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Common/Headers/Constants.h; sourceTree = "<group>"; };
+		580603EC1E1364B400E127C9 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = Common/Headers/Macros.h; sourceTree = "<group>"; };
+		580603ED1E1364C100E127C9 /* UIImage+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Common.h"; path = "Common/Plugin/UIImage+Common.h"; sourceTree = "<group>"; };
+		580603EE1E1364C100E127C9 /* UIImage+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Common.m"; path = "Common/Plugin/UIImage+Common.m"; sourceTree = "<group>"; };
+		580603F41E13653C00E127C9 /* DMBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMBaseCell.h; path = CustomViews/Base/DMBaseCell.h; sourceTree = "<group>"; };
+		580603F51E13653C00E127C9 /* DMBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMBaseCell.m; path = CustomViews/Base/DMBaseCell.m; sourceTree = "<group>"; };
+		580603F81E13653C00E127C9 /* DMTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMTableHeaderView.h; path = CustomViews/Base/DMTableHeaderView.h; sourceTree = "<group>"; };
+		580603F91E13653C00E127C9 /* DMTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTableHeaderView.m; path = CustomViews/Base/DMTableHeaderView.m; sourceTree = "<group>"; };
+		580603FD1E13654900E127C9 /* DMTableAppSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMTableAppSettingCell.h; path = CustomViews/AppSetting/DMTableAppSettingCell.h; sourceTree = "<group>"; };
+		580603FE1E13654900E127C9 /* DMTableAppSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTableAppSettingCell.m; path = CustomViews/AppSetting/DMTableAppSettingCell.m; sourceTree = "<group>"; };
+		580604011E1365B000E127C9 /* DZNSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DZNSegmentedControl.h; path = Vendors/DZNSegmentedControl/DZNSegmentedControl.h; sourceTree = "<group>"; };
+		580604021E1365B000E127C9 /* DZNSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DZNSegmentedControl.m; path = Vendors/DZNSegmentedControl/DZNSegmentedControl.m; sourceTree = "<group>"; };
+		580604041E136AB700E127C9 /* DMMonsterListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMMonsterListViewController.h; path = ViewControllers/MonsterList/DMMonsterListViewController.h; sourceTree = "<group>"; };
+		580604051E136AB700E127C9 /* DMMonsterListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMMonsterListViewController.m; path = ViewControllers/MonsterList/DMMonsterListViewController.m; sourceTree = "<group>"; };
+		580604071E136D6600E127C9 /* DMMonsterDetailInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DMMonsterDetailInfo.h; path = Models/DMMonsterDetailInfo.h; sourceTree = "<group>"; };
+		580604081E136D7400E127C9 /* DMMonsterDetailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMMonsterDetailInfo.m; path = Models/DMMonsterDetailInfo.m; sourceTree = "<group>"; };
+		5806040C1E13930400E127C9 /* GDTMobBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobBannerView.h; sourceTree = "<group>"; };
+		5806040D1E13930400E127C9 /* GDTMobInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobInterstitial.h; sourceTree = "<group>"; };
+		5806040E1E13930400E127C9 /* GDTNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeAd.h; sourceTree = "<group>"; };
+		5806040F1E13930400E127C9 /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
+		580604101E13930400E127C9 /* GDTTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTTrack.h; sourceTree = "<group>"; };
+		580604111E13931C00E127C9 /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
+		580604131E13932800E127C9 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		580604151E13933100E127C9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		580604171E13933E00E127C9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		580604191E13935E00E127C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5806041B1E13936500E127C9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		5806041D1E13937200E127C9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		5806041F1E13937900E127C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		580604211E13938000E127C9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		580604231E13955700E127C9 /* DMMonsterOptViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DMMonsterOptViewController.h; path = ViewControllers/MonsterOpt/DMMonsterOptViewController.h; sourceTree = "<group>"; };
+		580604241E13956500E127C9 /* DMMonsterOptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMMonsterOptViewController.m; path = ViewControllers/MonsterOpt/DMMonsterOptViewController.m; sourceTree = "<group>"; };
+		580604261E139A4100E127C9 /* DMTableMonsterListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DMTableMonsterListCell.h; path = CustomViews/MonsterList/DMTableMonsterListCell.h; sourceTree = "<group>"; };
+		580604271E139A4D00E127C9 /* DMTableMonsterListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTableMonsterListCell.m; path = CustomViews/MonsterList/DMTableMonsterListCell.m; sourceTree = "<group>"; };
+		BB175F1979EB6AD74FFBC22C /* Pods-dqxMonster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dqxMonster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dqxMonster/Pods-dqxMonster.debug.xcconfig"; sourceTree = "<group>"; };
+		D4DA9651918A7B8E8CF4AED2 /* libPods-dqxMonster.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dqxMonster.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEABFDAC9CA7397846EBF508 /* Pods-dqxMonster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dqxMonster.release.xcconfig"; path = "Pods/Target Support Files/Pods-dqxMonster/Pods-dqxMonster.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		580603B41E135DBC00E127C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				580604221E13938000E127C9 /* StoreKit.framework in Frameworks */,
+				580604201E13937900E127C9 /* Security.framework in Frameworks */,
+				5806041E1E13937200E127C9 /* libz.tbd in Frameworks */,
+				5806041C1E13936500E127C9 /* CoreTelephony.framework in Frameworks */,
+				5806041A1E13935E00E127C9 /* SystemConfiguration.framework in Frameworks */,
+				580604181E13933E00E127C9 /* QuartzCore.framework in Frameworks */,
+				580604161E13933100E127C9 /* CoreLocation.framework in Frameworks */,
+				580604141E13932800E127C9 /* AdSupport.framework in Frameworks */,
+				580604121E13931C00E127C9 /* libGDTMobSDK.a in Frameworks */,
+				F9241F6ED493D7E0CA7F0C9D /* libPods-dqxMonster.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		580603AE1E135DBC00E127C9 = {
+			isa = PBXGroup;
+			children = (
+				5806040C1E13930400E127C9 /* GDTMobBannerView.h */,
+				5806040D1E13930400E127C9 /* GDTMobInterstitial.h */,
+				5806040E1E13930400E127C9 /* GDTNativeAd.h */,
+				5806040F1E13930400E127C9 /* GDTSplashAd.h */,
+				580604101E13930400E127C9 /* GDTTrack.h */,
+				580603B91E135DBC00E127C9 /* dqxMonster */,
+				580603B81E135DBC00E127C9 /* Products */,
+				77D101E74C139FE9507FE10B /* Pods */,
+				FE55460E69DE42DB587E3154 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		580603B81E135DBC00E127C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				580603B71E135DBC00E127C9 /* dqxMonster.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		580603B91E135DBC00E127C9 /* dqxMonster */ = {
+			isa = PBXGroup;
+			children = (
+				580603D61E13638900E127C9 /* Vendors */,
+				580603D51E13638200E127C9 /* Models */,
+				580603D41E13637600E127C9 /* CustomViews */,
+				580603D31E13636F00E127C9 /* Common */,
+				580603D21E13635F00E127C9 /* ViewControllers */,
+				580603BD1E135DBC00E127C9 /* AppDelegate.h */,
+				580603BE1E135DBC00E127C9 /* AppDelegate.m */,
+				580603C31E135DBC00E127C9 /* Main.storyboard */,
+				580603C61E135DBC00E127C9 /* Assets.xcassets */,
+				580603C81E135DBC00E127C9 /* LaunchScreen.storyboard */,
+				580603CB1E135DBC00E127C9 /* Info.plist */,
+				580603BA1E135DBC00E127C9 /* Supporting Files */,
+			);
+			path = dqxMonster;
+			sourceTree = "<group>";
+		};
+		580603BA1E135DBC00E127C9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				580603BB1E135DBC00E127C9 /* main.m */,
+				580603D11E1362A500E127C9 /* dqxMonster.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		580603D21E13635F00E127C9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				580603E41E13645600E127C9 /* Base */,
+				580603E31E13644C00E127C9 /* MonsterList */,
+				580603E21E13644100E127C9 /* MonsterOpt */,
+				580603DB1E13641C00E127C9 /* AppSetting */,
+				580603D71E13639F00E127C9 /* TabBar */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		580603D31E13636F00E127C9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				580603E81E13647A00E127C9 /* Headers */,
+				580603E91E13648000E127C9 /* Plugin */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		580603D41E13637600E127C9 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				580603F31E1364F400E127C9 /* MonsterList */,
+				580603F21E1364EC00E127C9 /* AppSetting */,
+				580603F11E1364D900E127C9 /* MonsterDetail */,
+				580603F01E1364CF00E127C9 /* Base */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		580603D51E13638200E127C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				580604071E136D6600E127C9 /* DMMonsterDetailInfo.h */,
+				580604081E136D7400E127C9 /* DMMonsterDetailInfo.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		580603D61E13638900E127C9 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				580604001E13657F00E127C9 /* DZNSegmentedControl */,
+			);
+			name = Vendors;
+			sourceTree = "<group>";
+		};
+		580603D71E13639F00E127C9 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				580603D81E13640E00E127C9 /* DMTabBarController.h */,
+				580603D91E13640E00E127C9 /* DMTabBarController.m */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		580603DB1E13641C00E127C9 /* AppSetting */ = {
+			isa = PBXGroup;
+			children = (
+				580603DC1E13643300E127C9 /* AppHelpViewController.h */,
+				580603DD1E13643300E127C9 /* AppHelpViewController.m */,
+				580603DE1E13643300E127C9 /* DMAppSettingViewController.h */,
+				580603DF1E13643300E127C9 /* DMAppSettingViewController.m */,
+			);
+			name = AppSetting;
+			sourceTree = "<group>";
+		};
+		580603E21E13644100E127C9 /* MonsterOpt */ = {
+			isa = PBXGroup;
+			children = (
+				580604231E13955700E127C9 /* DMMonsterOptViewController.h */,
+				580604241E13956500E127C9 /* DMMonsterOptViewController.m */,
+			);
+			name = MonsterOpt;
+			sourceTree = "<group>";
+		};
+		580603E31E13644C00E127C9 /* MonsterList */ = {
+			isa = PBXGroup;
+			children = (
+				580604041E136AB700E127C9 /* DMMonsterListViewController.h */,
+				580604051E136AB700E127C9 /* DMMonsterListViewController.m */,
+			);
+			name = MonsterList;
+			sourceTree = "<group>";
+		};
+		580603E41E13645600E127C9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				580603E51E13646C00E127C9 /* DMBaseViewController.h */,
+				580603E61E13646C00E127C9 /* DMBaseViewController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		580603E81E13647A00E127C9 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				580603EB1E1364B400E127C9 /* Constants.h */,
+				580603EC1E1364B400E127C9 /* Macros.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		580603E91E13648000E127C9 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				580603ED1E1364C100E127C9 /* UIImage+Common.h */,
+				580603EE1E1364C100E127C9 /* UIImage+Common.m */,
+			);
+			name = Plugin;
+			sourceTree = "<group>";
+		};
+		580603F01E1364CF00E127C9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				580603F41E13653C00E127C9 /* DMBaseCell.h */,
+				580603F51E13653C00E127C9 /* DMBaseCell.m */,
+				580603F81E13653C00E127C9 /* DMTableHeaderView.h */,
+				580603F91E13653C00E127C9 /* DMTableHeaderView.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		580603F11E1364D900E127C9 /* MonsterDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MonsterDetail;
+			sourceTree = "<group>";
+		};
+		580603F21E1364EC00E127C9 /* AppSetting */ = {
+			isa = PBXGroup;
+			children = (
+				580603FD1E13654900E127C9 /* DMTableAppSettingCell.h */,
+				580603FE1E13654900E127C9 /* DMTableAppSettingCell.m */,
+			);
+			name = AppSetting;
+			sourceTree = "<group>";
+		};
+		580603F31E1364F400E127C9 /* MonsterList */ = {
+			isa = PBXGroup;
+			children = (
+				580604261E139A4100E127C9 /* DMTableMonsterListCell.h */,
+				580604271E139A4D00E127C9 /* DMTableMonsterListCell.m */,
+			);
+			name = MonsterList;
+			sourceTree = "<group>";
+		};
+		580604001E13657F00E127C9 /* DZNSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				580604011E1365B000E127C9 /* DZNSegmentedControl.h */,
+				580604021E1365B000E127C9 /* DZNSegmentedControl.m */,
+			);
+			name = DZNSegmentedControl;
+			sourceTree = "<group>";
+		};
+		77D101E74C139FE9507FE10B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB175F1979EB6AD74FFBC22C /* Pods-dqxMonster.debug.xcconfig */,
+				DEABFDAC9CA7397846EBF508 /* Pods-dqxMonster.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FE55460E69DE42DB587E3154 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				580604211E13938000E127C9 /* StoreKit.framework */,
+				5806041F1E13937900E127C9 /* Security.framework */,
+				5806041D1E13937200E127C9 /* libz.tbd */,
+				5806041B1E13936500E127C9 /* CoreTelephony.framework */,
+				580604191E13935E00E127C9 /* SystemConfiguration.framework */,
+				580604171E13933E00E127C9 /* QuartzCore.framework */,
+				580604151E13933100E127C9 /* CoreLocation.framework */,
+				580604131E13932800E127C9 /* AdSupport.framework */,
+				580604111E13931C00E127C9 /* libGDTMobSDK.a */,
+				D4DA9651918A7B8E8CF4AED2 /* libPods-dqxMonster.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		580603B61E135DBC00E127C9 /* dqxMonster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 580603CE1E135DBC00E127C9 /* Build configuration list for PBXNativeTarget "dqxMonster" */;
+			buildPhases = (
+				8813EA7217783B89983F3753 /* [CP] Check Pods Manifest.lock */,
+				580603B31E135DBC00E127C9 /* Sources */,
+				580603B41E135DBC00E127C9 /* Frameworks */,
+				580603B51E135DBC00E127C9 /* Resources */,
+				E73D023E2891EB1E9163F24A /* [CP] Embed Pods Frameworks */,
+				ACB3630C3D3185FFDC5A27B8 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dqxMonster;
+			productName = dqxMonster;
+			productReference = 580603B71E135DBC00E127C9 /* dqxMonster.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		580603AF1E135DBC00E127C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = HANSHAOWEN;
+				TargetAttributes = {
+					580603B61E135DBC00E127C9 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 887CVK63XR;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 580603B21E135DBC00E127C9 /* Build configuration list for PBXProject "dqxMonster" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 580603AE1E135DBC00E127C9;
+			productRefGroup = 580603B81E135DBC00E127C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				580603B61E135DBC00E127C9 /* dqxMonster */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		580603B51E135DBC00E127C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				580603CA1E135DBC00E127C9 /* LaunchScreen.storyboard in Resources */,
+				580603C71E135DBC00E127C9 /* Assets.xcassets in Resources */,
+				580603C51E135DBC00E127C9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8813EA7217783B89983F3753 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ACB3630C3D3185FFDC5A27B8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dqxMonster/Pods-dqxMonster-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E73D023E2891EB1E9163F24A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dqxMonster/Pods-dqxMonster-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		580603B31E135DBC00E127C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				580603E71E13646C00E127C9 /* DMBaseViewController.m in Sources */,
+				580604281E139A4D00E127C9 /* DMTableMonsterListCell.m in Sources */,
+				580604031E1365B000E127C9 /* DZNSegmentedControl.m in Sources */,
+				580603FF1E13654900E127C9 /* DMTableAppSettingCell.m in Sources */,
+				580603E11E13643300E127C9 /* DMAppSettingViewController.m in Sources */,
+				580603BF1E135DBC00E127C9 /* AppDelegate.m in Sources */,
+				580603FA1E13653C00E127C9 /* DMBaseCell.m in Sources */,
+				580604061E136AB700E127C9 /* DMMonsterListViewController.m in Sources */,
+				580604091E136D7400E127C9 /* DMMonsterDetailInfo.m in Sources */,
+				580603BC1E135DBC00E127C9 /* main.m in Sources */,
+				580603FC1E13653C00E127C9 /* DMTableHeaderView.m in Sources */,
+				580604251E13956500E127C9 /* DMMonsterOptViewController.m in Sources */,
+				580603EF1E1364C100E127C9 /* UIImage+Common.m in Sources */,
+				580603DA1E13640E00E127C9 /* DMTabBarController.m in Sources */,
+				580603E01E13643300E127C9 /* AppHelpViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		580603C31E135DBC00E127C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				580603C41E135DBC00E127C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		580603C81E135DBC00E127C9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				580603C91E135DBC00E127C9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		580603CC1E135DBC00E127C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		580603CD1E135DBC00E127C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		580603CF1E135DBC00E127C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB175F1979EB6AD74FFBC22C /* Pods-dqxMonster.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 887CVK63XR;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = dqxMonster/dqxMonster.pch;
+				INFOPLIST_FILE = dqxMonster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.mengyoutu.dqxMonster;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		580603D01E135DBC00E127C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEABFDAC9CA7397846EBF508 /* Pods-dqxMonster.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 887CVK63XR;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = dqxMonster/dqxMonster.pch;
+				INFOPLIST_FILE = dqxMonster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.mengyoutu.dqxMonster;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		580603B21E135DBC00E127C9 /* Build configuration list for PBXProject "dqxMonster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				580603CC1E135DBC00E127C9 /* Debug */,
+				580603CD1E135DBC00E127C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		580603CE1E135DBC00E127C9 /* Build configuration list for PBXNativeTarget "dqxMonster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				580603CF1E135DBC00E127C9 /* Debug */,
+				580603D01E135DBC00E127C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 580603AF1E135DBC00E127C9 /* Project object */;
+}
