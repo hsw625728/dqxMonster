@@ -38,7 +38,6 @@
     
     _window.rootViewController = [[DMTabBarController alloc] init];
     return YES;
-    return YES;
 }
 
 
@@ -70,40 +69,139 @@
 }
 
 - (void)initData{
-    /*
-    //初始化全局特技点数静态数据
-    _gSkillInfo = [[DSGlobalSkillInfo alloc] init];
-    _gSkillInfo.typeName = SKILL_DETAIL_SECTION;
-    _gSkillInfo.skillPoint = SKILL_POINT_POINT;
-    _gSkillInfo.skillName = SKILL_POINT_NAME;
-    _gSkillInfo.skillDesc = SKILL_DETAIL_DESC;
-    _gSkillInfo.pointForLevel = [[NSDictionary alloc] initWithObjectsAndKeys:SKILL_POINT_FOR_LEVEL, nil];
+    _gMonsterInfo = [[NSMutableDictionary alloc] init];
+    NSString* sourceInfo = MONSTER_SOURCE_INFO;
+    NSArray *monsterInfoStr = [sourceInfo componentsSeparatedByString:@"|日文名="];
     
-    //初始化核心全局数据
-    NSString *docPath =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [docPath stringByAppendingPathComponent:@"globalJobInfo"];
-    
-    _gJobInfo = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    if (ISNULL(_gJobInfo))
+    for (NSInteger index = 1; index < monsterInfoStr.count; index++)
     {
-        DSGlobalJobInfo *info1 = JOB_SKILL_TYPE_ZS;
-        DSGlobalJobInfo *info2 = JOB_SKILL_TYPE_MFS;
-        DSGlobalJobInfo *info3 = JOB_SKILL_TYPE_SL;
-        DSGlobalJobInfo *info4 = JOB_SKILL_TYPE_WSJ;
-        DSGlobalJobInfo *info5 = JOB_SKILL_TYPE_LXYR;
-        DSGlobalJobInfo *info6 = JOB_SKILL_TYPE_XBJ;
-        DSGlobalJobInfo *info7 = JOB_SKILL_TYPE_SQS;
-        DSGlobalJobInfo *info8 = JOB_SKILL_TYPE_YX;
-        DSGlobalJobInfo *info9 = JOB_SKILL_TYPE_MFZS;
-        DSGlobalJobInfo *info10 = JOB_SKILL_TYPE_XZ;
-        _gJobInfo = [[NSMutableDictionary alloc] initWithObjectsAndKeys:\
-                     info1, @"战士", info2, @"魔法师", \
-                     info3, @"僧侣", info4, @"武术家", \
-                     info5, @"旅行艺人", info6, @"寻宝家", \
-                     info7, @"圣骑士", info8, @"游侠", \
-                     info9, @"魔法战士", info10, @"贤者", nil];
+        DMMonsterDetailInfo *detailInfo = [[DMMonsterDetailInfo alloc] initMine:@""  nameJap:@"" name:@"" density:@"" weakLevel:-1 hp:-1 atk:-1 arm:-1 exp:-1 expJap:-1 gold:-1 weight:-1 fireRes:-1 iceRes:-1 thunderRes:-1 earthRes:-1 windRes:-1 darkRes:-1 lightRes:-1 shuiRes:-1 hunRes:-1 meiRes:-1 maRes:-1 zhongRes:-1 huanRes:-1 fengRes:-1 daRes:-1 shuaiRes:-1 shuRes:-1 kongRes:-1 jiRes:-1 nengRes:-1 naiRes:-1 gongRes:-1 fangRes:-1 xingRes:-1 zhongliangRes:-1 jifeiRes:-1 daduanRes:-1 weightCheck1:-1 weightCheckHalf1:-1 weightCheck2:-1 weightCheckHalf2:-1 weightCheck3:-1 weightCheckHalf3:-1 weightCheck4:-1 weightCheckHalf4:-1 weightCheck5:-1 weightCheckHalf5:-1 dropItem:@"" dropItemRare:@"" skill:@"" desc1:@"" desc2:@""];
+        NSArray *tokens = [monsterInfoStr[index] componentsSeparatedByString:@"|"];
+        detailInfo.nameJap = tokens[0];
+        NSMutableDictionary *pairs = [[NSMutableDictionary alloc] initWithCapacity:64];
+        for (NSInteger i = 1; i < tokens.count; i++)
+        {
+            NSArray *pair = [tokens[i] componentsSeparatedByString:@"="];
+            [pairs setObject:pair[1] forKey:pair[0]];
+        }
+        NSString *right = [[NSString alloc] init];
+        
+        right = [pairs objectForKey:@"名称"];
+        detailInfo.name = (right == nil ? @"" : right);
+        right = [pairs objectForKey:@"系别"];
+        detailInfo.category = (right == nil ? @"" : right);
+        right = [pairs objectForKey:@"出现数量"];
+        detailInfo.density = (right == nil ? @"" : right);
+        
+        right = [pairs objectForKey:@"变弱等级"];
+        detailInfo.weakLevel = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"体力"];
+        detailInfo.hp = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"攻击力"];
+        detailInfo.atk = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"防御力"];
+        detailInfo.arm = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"经验"];
+        detailInfo.exp = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"日服经验"];
+        detailInfo.expJap = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"金币"];
+        detailInfo.gold = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量"];
+        detailInfo.weight = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"火"];
+        detailInfo.fireRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"冰"];
+        detailInfo.iceRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"雷"];
+        detailInfo.thunderRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"土"];
+        detailInfo.earthRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"风"];
+        detailInfo.windRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"暗"];
+        detailInfo.darkRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"光"];
+        detailInfo.lightRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"睡眠"];
+        detailInfo.shuiRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"混乱"];
+        detailInfo.hunRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"魅惑"];
+        detailInfo.meiRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"麻痹"];
+        detailInfo.maRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"中毒"];
+        detailInfo.zhongRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"幻觉"];
+        detailInfo.huanRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"封印"];
+        detailInfo.fengRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"大笑"];
+        detailInfo.daRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"摔倒"];
+        detailInfo.shuaiRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"束缚"];
+        detailInfo.shuRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"恐惧"];
+        detailInfo.kongRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"即死"];
+        detailInfo.jiRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"能量吸收"];
+        detailInfo.nengRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"耐性降低"];
+        detailInfo.naiRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"攻击降低"];
+        detailInfo.gongRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"防御降低"];
+        detailInfo.fangRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"行动延长"];
+        detailInfo.xingRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量减少"];
+        detailInfo.zhongliangRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"击飞"];
+        detailInfo.jifeiRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"打断"];
+        detailInfo.daduanRes = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查1"];
+        detailInfo.weightCheck1 = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查1（半减）"];
+        detailInfo.weightCheckHalf1 = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查2"];
+        detailInfo.weightCheck2 = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查2（半减）"];
+        detailInfo.weightCheckHalf2 = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查3"];
+        detailInfo.weightCheck3 = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查3（半减）"];
+        detailInfo.weightCheckHalf3 = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查4"];
+        detailInfo.weightCheck4 = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查4（半减）"];
+        detailInfo.weightCheckHalf4 = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查5"];
+        detailInfo.weightCheck5 = (right == nil ? -1 : right.intValue);
+        right = [pairs objectForKey:@"重量检查5（半减）"];
+        detailInfo.weightCheckHalf5 = (right == nil ? -1 : right.intValue);
+        
+        
+        right = [pairs objectForKey:@"普通掉落"];
+        detailInfo.dropItem = (right == nil ? @"" : right);
+        right = [pairs objectForKey:@"稀有掉落"];
+        detailInfo.dropItemRare = (right == nil ? @"" : right);
+        right = [pairs objectForKey:@"技能咒文"];
+        detailInfo.skill = (right == nil ? @"" : right);
+        //right = [pairs objectForKey:@"说明（日文参考）"];
+        //detailInfo.des = (right == nil ? @"" : right);
+        right = [pairs objectForKey:@"背景1"];
+        detailInfo.desc1 = (right == nil ? @"" : right);
+        right = [pairs objectForKey:@"背景2"];
+        detailInfo.desc2 = (right == nil ? @"" : right);
+        
+        
+        [_gMonsterInfo setObject:detailInfo forKey:detailInfo.name];
     }
-    */
+    
 }
 
 @end
