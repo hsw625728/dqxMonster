@@ -13,6 +13,7 @@
 #import "DMMonsterDetailInfo.h"
 #import "DMTableMonsterListCell.h"
 #import "DMTableHeaderView.h"
+#import "DMMonsterDetailViewController.h"
 //Tencent
 #import "GDTMobBannerView.h" //导入GDTMobBannerView.h头文件
 
@@ -45,7 +46,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = DMMonsterOpt;
+    self.navigationItem.title = DMMonsterList;
     
     [self setupViews];
     
@@ -130,7 +131,7 @@
     */
     NSArray *category = [appDelegate.gMonsterCategroy allKeys];
     NSArray *monstersName = [appDelegate.gMonsterCategroy objectForKey:category[indexPath.section]];
-    [cell setMonsterName:monstersName[indexPath.row]];
+    [cell setMonsterName:monstersName[indexPath.row] weakLevel:monstersName[indexPath.row]];
      return cell;
 }
 
@@ -155,6 +156,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    DMMonsterDetailViewController *viewController = [[DMMonsterDetailViewController alloc] init];
+    NSArray *category = [appDelegate.gMonsterCategroy allKeys];
+    NSArray *monstersName = [appDelegate.gMonsterCategroy objectForKey:category[indexPath.section]];
+    [viewController setMonsterName:monstersName[indexPath.row]];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

@@ -34,6 +34,8 @@
 		580604221E13938000E127C9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580604211E13938000E127C9 /* StoreKit.framework */; };
 		580604251E13956500E127C9 /* DMMonsterOptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 580604241E13956500E127C9 /* DMMonsterOptViewController.m */; };
 		580604281E139A4D00E127C9 /* DMTableMonsterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 580604271E139A4D00E127C9 /* DMTableMonsterListCell.m */; };
+		5812FA4D1E14A64F00EEA340 /* DMMonsterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812FA4C1E14A64F00EEA340 /* DMMonsterDetailViewController.m */; };
+		5812FA521E14AA0200EEA340 /* DMTableMonsterDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812FA511E14AA0200EEA340 /* DMTableMonsterDetailCell.m */; };
 		F9241F6ED493D7E0CA7F0C9D /* libPods-dqxMonster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA9651918A7B8E8CF4AED2 /* libPods-dqxMonster.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +91,10 @@
 		580604241E13956500E127C9 /* DMMonsterOptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMMonsterOptViewController.m; path = ViewControllers/MonsterOpt/DMMonsterOptViewController.m; sourceTree = "<group>"; };
 		580604261E139A4100E127C9 /* DMTableMonsterListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DMTableMonsterListCell.h; path = CustomViews/MonsterList/DMTableMonsterListCell.h; sourceTree = "<group>"; };
 		580604271E139A4D00E127C9 /* DMTableMonsterListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTableMonsterListCell.m; path = CustomViews/MonsterList/DMTableMonsterListCell.m; sourceTree = "<group>"; };
+		5812FA4B1E14A63D00EEA340 /* DMMonsterDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DMMonsterDetailViewController.h; path = ViewControllers/MonsterList/DMMonsterDetailViewController.h; sourceTree = "<group>"; };
+		5812FA4C1E14A64F00EEA340 /* DMMonsterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMMonsterDetailViewController.m; path = ViewControllers/MonsterList/DMMonsterDetailViewController.m; sourceTree = "<group>"; };
+		5812FA501E14A9F300EEA340 /* DMTableMonsterDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DMTableMonsterDetailCell.h; path = CustomViews/MonsterList/DMTableMonsterDetailCell.h; sourceTree = "<group>"; };
+		5812FA511E14AA0200EEA340 /* DMTableMonsterDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTableMonsterDetailCell.m; path = CustomViews/MonsterList/DMTableMonsterDetailCell.m; sourceTree = "<group>"; };
 		BB175F1979EB6AD74FFBC22C /* Pods-dqxMonster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dqxMonster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dqxMonster/Pods-dqxMonster.debug.xcconfig"; sourceTree = "<group>"; };
 		D4DA9651918A7B8E8CF4AED2 /* libPods-dqxMonster.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dqxMonster.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEABFDAC9CA7397846EBF508 /* Pods-dqxMonster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dqxMonster.release.xcconfig"; path = "Pods/Target Support Files/Pods-dqxMonster/Pods-dqxMonster.release.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +255,8 @@
 			children = (
 				580604041E136AB700E127C9 /* DMMonsterListViewController.h */,
 				580604051E136AB700E127C9 /* DMMonsterListViewController.m */,
+				5812FA4B1E14A63D00EEA340 /* DMMonsterDetailViewController.h */,
+				5812FA4C1E14A64F00EEA340 /* DMMonsterDetailViewController.m */,
 			);
 			name = MonsterList;
 			sourceTree = "<group>";
@@ -312,6 +320,8 @@
 			children = (
 				580604261E139A4100E127C9 /* DMTableMonsterListCell.h */,
 				580604271E139A4D00E127C9 /* DMTableMonsterListCell.m */,
+				5812FA501E14A9F300EEA340 /* DMTableMonsterDetailCell.h */,
+				5812FA511E14AA0200EEA340 /* DMTableMonsterDetailCell.m */,
 			);
 			name = MonsterList;
 			sourceTree = "<group>";
@@ -479,7 +489,9 @@
 				580604031E1365B000E127C9 /* DZNSegmentedControl.m in Sources */,
 				580603FF1E13654900E127C9 /* DMTableAppSettingCell.m in Sources */,
 				580603E11E13643300E127C9 /* DMAppSettingViewController.m in Sources */,
+				5812FA4D1E14A64F00EEA340 /* DMMonsterDetailViewController.m in Sources */,
 				580603BF1E135DBC00E127C9 /* AppDelegate.m in Sources */,
+				5812FA521E14AA0200EEA340 /* DMTableMonsterDetailCell.m in Sources */,
 				580603FA1E13653C00E127C9 /* DMBaseCell.m in Sources */,
 				580604061E136AB700E127C9 /* DMMonsterListViewController.m in Sources */,
 				580604091E136D7400E127C9 /* DMMonsterDetailInfo.m in Sources */,

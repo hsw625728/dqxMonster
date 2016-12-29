@@ -15,9 +15,9 @@ NSString *const kDMTableMonsterListCellID = @"kDMTableMonsterListCellID";
 
 @interface DMTableMonsterListCell ()
 
-@property (strong, nonatomic) UILabel *labelSkillPoint;
-@property (strong, nonatomic) UILabel *labelSkillTitle;
-@property (strong, nonatomic) UILabel *labelSkillDesc;
+@property (strong, nonatomic) UIImageView *leftImageView;
+@property (strong, nonatomic) UILabel *labelName;
+@property (strong, nonatomic) UILabel *labelWeakLevel;
 
 @end
 
@@ -50,31 +50,29 @@ NSString *const kDMTableMonsterListCellID = @"kDMTableMonsterListCellID";
 - (void)setupViews {
     const int ICON_WIDE = 38;
     const int ICON_HEIGH = 38;
-    self.accessoryType = UITableViewCellAccessoryNone;
+    
+    self.backgroundColor = [UIColor whiteColor];
     self.contentView.backgroundColor = [UIColor whiteColor];
     
-    //CGFloat contentViewWidth = CGRectGetWidth([UIScreen mainScreen ].applicationFrame);
+    CGFloat contentViewWidth = CGRectGetWidth([UIScreen mainScreen ].applicationFrame);
     //CGFloat lableX = ICON_WIDE + 8*2;
     
-    _labelSkillPoint = ({
-        UILabel *label = [UILabel new];
-        label.backgroundColor = [UIColor whiteColor];
-        label.font = FontWithSize(26);
-        label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = DMLightBlackTextColor;
-        [self.contentView addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.sizeOffset(CGSizeMake(ICON_WIDE+8, ICON_HEIGH));
-            make.top.equalTo(self.contentView).offset(1);
-            make.centerY.equalTo(self.contentView);
+    _leftImageView = ({
+        UIImageView *imageView = [UIImageView new];
+        imageView.contentMode = UIViewContentModeCenter;
+        [self.contentView addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.sizeOffset(CGSizeMake(ICON_WIDE, ICON_HEIGH));
+            make.centerY.equalTo(self.contentView).offset(2);
             make.left.equalTo(self.contentView).offset(8);
         }];
         
-        label;
+        imageView;
     });
+
     
     
-    _labelSkillTitle = ({
+    _labelName = ({
         UILabel *label = [UILabel new];
         label.backgroundColor = [UIColor whiteColor];
         label.font = FontWithSize(13);
@@ -90,7 +88,7 @@ NSString *const kDMTableMonsterListCellID = @"kDMTableMonsterListCellID";
     });
     
     
-    _labelSkillDesc = ({
+    _labelWeakLevel = ({
         UILabel *label = [UILabel new];
         label.backgroundColor = [UIColor whiteColor];
         label.font = FontWithSize(9);
@@ -106,11 +104,21 @@ NSString *const kDMTableMonsterListCellID = @"kDMTableMonsterListCellID";
         label;
     });
     
+    UIImageView *forwardView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forward_info"]];
+    [self.contentView addSubview:forwardView];
+    [forwardView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.sizeOffset(CGSizeMake(6, 10));
+        make.centerY.equalTo(self.contentView);
+        //make.left.greaterThanOrEqualTo(_titleLabel.mas_right).offset(8);
+        make.right.equalTo(self.contentView).offset(-8);
+    }];
 }
 
--(void)setMonsterName:(NSString*)name
+-(void)setMonsterName:(NSString*)name weakLevel:(NSString*)lev
 {
-    _labelSkillTitle.text = name;
+    _labelName.text = name;
+    _labelWeakLevel.text = lev;
+    _leftImageView.image = [UIImage imageNamed:name];
 }
 
 @end
