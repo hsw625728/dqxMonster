@@ -42,6 +42,7 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
 @property (strong, nonatomic) UILabel *labelDropRareItemName;
 
 //下方 耐性
+@property (strong, nonatomic) UILabel *labelResTitle;
 @property (strong, nonatomic) UILabel *labelFire;
 @property (strong, nonatomic) UILabel *labelIce;
 @property (strong, nonatomic) UILabel *labelThunder;
@@ -77,7 +78,7 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
 #pragma mark - Class Method
 
 + (CGFloat)cellHeight {
-    return 500;
+    return CGRectGetWidth([UIScreen mainScreen ].applicationFrame)*1.8;
 }
 
 #pragma mark - View Lifecycle
@@ -129,8 +130,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
-            make.top.equalTo(self.contentView).offset(WIDTH/8);
+            make.centerX.equalTo(self.contentView).offset(-WIDTH/4);
+            make.top.equalTo(self.contentView).offset(WIDTH/16);
         }];
         
         label;
@@ -143,7 +144,7 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.centerX.equalTo(self.contentView).offset(-WIDTH/4);
             make.top.equalTo(self.contentView).offset(WIDTH/6);
         }];
         
@@ -152,15 +153,17 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
     //----名字和图标设置结束------
     
     //右上角 基础信息
+    const float offsetRightTop = 2*WIDTH/32;
+    const float rightTopOffset = WIDTH/8;
     _labelInfoTitle = ({
         UILabel *label = [UILabel new];
         label.backgroundColor = [UIColor whiteColor];
-        label.font = FontWithSize(12);
+        label.font = FontWithSize(20);
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(3*WIDTH/4);
-            make.top.equalTo(self.contentView).offset(WIDTH/32);
+            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.top.equalTo(self.contentView).offset(WIDTH/16);
         }];
         
         label;
@@ -172,8 +175,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(3*WIDTH/4);
-            make.top.equalTo(self.contentView).offset(3*1*WIDTH/32);
+            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.top.equalTo(self.contentView).offset(offsetRightTop+rightTopOffset);
         }];
         
         label;
@@ -185,8 +188,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(3*WIDTH/4);
-            make.top.equalTo(self.contentView).offset(3*2*WIDTH/32);
+            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.top.equalTo(self.contentView).offset(2*offsetRightTop+rightTopOffset);
         }];
         
         label;
@@ -198,8 +201,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(3*WIDTH/4);
-            make.top.equalTo(self.contentView).offset(3*3*WIDTH/32);
+            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.top.equalTo(self.contentView).offset(3*offsetRightTop+rightTopOffset);
         }];
         
         label;
@@ -211,8 +214,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(3*WIDTH/4);
-            make.top.equalTo(self.contentView).offset(3*4*WIDTH/32);
+            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.top.equalTo(self.contentView).offset(4*offsetRightTop+rightTopOffset);
         }];
         
         label;
@@ -224,8 +227,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(3*WIDTH/4);
-            make.top.equalTo(self.contentView).offset(3*5*WIDTH/32);
+            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.top.equalTo(self.contentView).offset(5*offsetRightTop+rightTopOffset);
         }];
         
         label;
@@ -237,8 +240,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(3*WIDTH/4);
-            make.top.equalTo(self.contentView).offset(3*6*WIDTH/32);
+            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.top.equalTo(self.contentView).offset(6*offsetRightTop+rightTopOffset);
         }];
         
         label;
@@ -250,17 +253,478 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(3*WIDTH/4);
-            make.top.equalTo(self.contentView).offset(3*7*WIDTH/32);
+            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.top.equalTo(self.contentView).offset(7*offsetRightTop+rightTopOffset);
         }];
         
         label;
     });
     //----基础信息设置结束------
     
+    //中间 获得道具
+    _labelDropTitle = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(20);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_monsterImage.mas_bottom).offset(8);
+        }];
+        
+        label;
+    });
+    _itemImage = ({
+        UIImageView *imageView = [UIImageView new];
+        imageView.contentMode = UIViewContentModeCenter;
+        [self.contentView addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.sizeOffset(CGSizeMake(ICON_WIDE, ICON_HEIGH));
+            make.top.equalTo(_labelDropTitle.mas_bottom).offset(WIDTH/32);
+            make.left.equalTo(self.contentView).offset(WIDTH/8);
+        }];
+        
+        imageView;
+    });
+    _rareItemImage = ({
+        UIImageView *imageView = [UIImageView new];
+        imageView.contentMode = UIViewContentModeCenter;
+        [self.contentView addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.sizeOffset(CGSizeMake(ICON_WIDE, ICON_HEIGH));
+            make.top.equalTo(_labelDropTitle.mas_bottom).offset(WIDTH/32);
+            make.left.equalTo(self.contentView).offset(5*WIDTH/8);
+        }];
+        
+        imageView;
+    });
+    _labelDropItem = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(-7*WIDTH/16);
+            make.centerY.equalTo(_rareItemImage).offset(1);
+        }];
+        
+        label;
+    });
+    _labelDropItemName = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(-3*WIDTH/16);
+            make.centerY.equalTo(_rareItemImage).offset(1);
+        }];
+        
+        label;
+    });
+    _labelDropRareItem = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(WIDTH/16);
+            make.centerY.equalTo(_rareItemImage).offset(1);
+        }];
+        
+        label;
+    });
+    _labelDropRareItemName = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(5*WIDTH/16);
+            make.centerY.equalTo(_rareItemImage).offset(1);
+        }];
+        
+        label;
+    });
+    //--------中间道具设置结束------------
     
-    
-
+    //下方 耐性
+    _labelResTitle = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(20);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_rareItemImage.mas_bottom).offset(8);
+        }];
+        
+        label;
+    });
+    //第一列
+    const float offsetFirst = -WIDTH/3;
+    const float offsetSecond = WIDTH/3;
+    const float offsetTop = 2*WIDTH/32;
+    const float titleOffset = WIDTH/16;
+    _labelFire = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetFirst);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*0+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelIce = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetFirst);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*1+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelThunder = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetFirst);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*2+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelEarth = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetFirst);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*3+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelWind = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetFirst);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*4+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelDark = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetFirst);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*5+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelLight = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetFirst);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*6+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelShui = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetFirst);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*7+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelHun = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetFirst);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*8+titleOffset);
+        }];
+        
+        label;
+    });
+    //第二列
+    _labelMei = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*0+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelMa = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*1+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelZhong = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*2+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelHuan = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*3+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelFeng = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*4+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelDa = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*5+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelShuai = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*6+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelShu = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*7+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelKong = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*8+titleOffset);
+        }];
+        
+        label;
+    });
+    //第三列
+    _labelJi = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetSecond);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*0+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelNeng = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetSecond);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*1+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelNai = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetSecond);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*2+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelGong = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetSecond);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*3+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelFang = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetSecond);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*4+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelXing = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetSecond);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*5+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelZhongliang = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetSecond);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*6+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelJifei= ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetSecond);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*7+titleOffset);
+        }];
+        
+        label;
+    });
+    _labelDaduan = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(12);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.contentView).offset(offsetSecond);
+            make.top.equalTo(_labelResTitle.mas_bottom).offset(offsetTop*8+titleOffset);
+        }];
+        
+        label;
+    });
 }
 
 -(void)setMonsterName:(NSString*)name
@@ -268,19 +732,60 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
     _name = name;
     AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     DMMonsterDetailInfo *info = [delegate.gMonsterInfo objectForKey:_name];
+    
+    //左上角 名字图标
     _labelName.text = info.name;
     _labelCategroy.text = info.category;
-    _monsterImage;
+    _monsterImage.image = [UIImage imageNamed:_name];
     
     //右上角 基础信息
     _labelInfoTitle.text = @"基础信息";
-    _labelHp.text = [NSString stringWithFormat:@"%i", (int)info.hp];
-    _labelAtk.text = [NSString stringWithFormat:@"%i", (int)info.atk];
-    _labelArm.text = [NSString stringWithFormat:@"%i", (int)info.arm];
-    _labelExp.text = [NSString stringWithFormat:@"%i", (int)info.expJap];
-    _labelGold.text = [NSString stringWithFormat:@"%i", (int)info.gold];
-    _labelWeaklevel.text = [NSString stringWithFormat:@"%i", (int)info.weakLevel];
-    _labelWeight.text = [NSString stringWithFormat:@"%i", (int)info.weight];
+    _labelHp.text = [NSString stringWithFormat:@"  体    力  %i", (int)info.hp];
+    _labelAtk.text = [NSString stringWithFormat:@"攻 击 力%i", (int)info.atk];
+    _labelArm.text = [NSString stringWithFormat:@"防 御 力%i", (int)info.arm];
+    _labelExp.text = [NSString stringWithFormat:@"  经    验  %i", (int)info.expJap];
+    _labelGold.text = [NSString stringWithFormat:@"  金    币  %i", (int)info.gold];
+    _labelWeaklevel.text = [NSString stringWithFormat:@"汗泪等级%i", (int)info.weakLevel];
+    _labelWeight.text = [NSString stringWithFormat:@"  重    量  %i", (int)info.weight];
+    
+    //中间 获得道具
+    _itemImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"Icon-%@", info.dropItem]];
+    _rareItemImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"Icon-%@", info.dropItemRare]];
+    _labelDropTitle.text = @"获得道具";
+    _labelDropItem.text = @"普通";
+    _labelDropItemName.text = info.dropItem;
+    _labelDropRareItem.text = @"稀有";
+    _labelDropRareItemName.text = info.dropItemRare;
+
+    //下方 耐性
+    _labelResTitle.text = @"耐性";
+    _labelFire.text = [NSString stringWithFormat:@"   火   %i", (int)info.fireRes];
+    _labelIce.text = [NSString stringWithFormat:@"   冰   %i", (int)info.iceRes];
+    _labelThunder.text = [NSString stringWithFormat:@"   雷   %i", (int)info.thunderRes];
+    _labelEarth.text = [NSString stringWithFormat:@"   土   %i", (int)info.earthRes];
+    _labelWind.text = [NSString stringWithFormat:@"   风   %i", (int)info.windRes];
+    _labelDark.text = [NSString stringWithFormat:@"   暗   %i", (int)info.darkRes];
+    _labelLight.text = [NSString stringWithFormat:@"   光   %i", (int)info.lightRes];
+    _labelShui.text = [NSString stringWithFormat:@"  睡眠  %i", (int)info.shuiRes];
+    _labelHun.text = [NSString stringWithFormat:@"  混乱  %i", (int)info.hunRes];
+    _labelMei.text = [NSString stringWithFormat:@"  魅惑  %i", (int)info.meiRes];
+    _labelMa.text = [NSString stringWithFormat:@"  麻痹  %i", (int)info.maRes];
+    _labelZhong.text = [NSString stringWithFormat:@"  中毒  %i", (int)info.zhongRes];
+    _labelHuan.text = [NSString stringWithFormat:@"  幻觉  %i", (int)info.huanRes];
+    _labelFeng.text = [NSString stringWithFormat:@"  封印  %i", (int)info.fengRes];
+    _labelDa.text = [NSString stringWithFormat:@"  大笑  %i", (int)info.daRes];
+    _labelShuai.text = [NSString stringWithFormat:@"  摔倒  %i", (int)info.shuaiRes];
+    _labelShu.text = [NSString stringWithFormat:@"  束缚  %i", (int)info.shuRes];
+    _labelKong.text = [NSString stringWithFormat:@"  恐惧  %i", (int)info.kongRes];
+    _labelJi.text = [NSString stringWithFormat:@"  即死  %i", (int)info.jiRes];
+    _labelJifei.text = [NSString stringWithFormat:@"  击飞  %i", (int)info.jifeiRes];
+    _labelDaduan.text = [NSString stringWithFormat:@"  打断  %i", (int)info.daduanRes];
+    _labelNeng.text = [NSString stringWithFormat:@"能量吸收%i", (int)info.nengRes];
+    _labelNai.text = [NSString stringWithFormat:@"耐性降低%i", (int)info.naiRes];
+    _labelGong.text = [NSString stringWithFormat:@"攻击降低%i", (int)info.gongRes];
+    _labelFang.text = [NSString stringWithFormat:@"防御降低%i", (int)info.fangRes];
+    _labelXing.text = [NSString stringWithFormat:@"行动延长%i", (int)info.xingRes];
+    _labelZhongliang.text = [NSString stringWithFormat:@"重量减少%i", (int)info.zhongliangRes];
 }
 
 @end
