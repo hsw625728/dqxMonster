@@ -110,14 +110,15 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
     //CGFloat lableX = ICON_WIDE + 8*2;
     
     //左上角 名字和图标
+    const float leftTopOffset = -WIDTH/5;
     _monsterImage = ({
         UIImageView *imageView = [UIImageView new];
         imageView.contentMode = UIViewContentModeCenter;
         [self.contentView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.sizeOffset(CGSizeMake(WIDTH/2, WIDTH/2));
-            make.top.equalTo(self.contentView).offset(WIDTH/4);
-            make.left.equalTo(self.contentView).offset(8);
+            make.top.equalTo(self.contentView).offset(WIDTH/7);
+            make.centerX.equalTo(self.contentView).offset(leftTopOffset);
         }];
         
         imageView;
@@ -130,7 +131,7 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(-WIDTH/4);
+            make.centerX.equalTo(self.contentView).offset(leftTopOffset);
             make.top.equalTo(self.contentView).offset(WIDTH/16);
         }];
         
@@ -144,8 +145,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(-WIDTH/4);
-            make.top.equalTo(self.contentView).offset(WIDTH/6);
+            make.centerX.equalTo(self.contentView).offset(leftTopOffset);
+            make.top.equalTo(self.contentView).offset(WIDTH/7.4);
         }];
         
         label;
@@ -319,7 +320,7 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(-3*WIDTH/16);
+            make.centerX.equalTo(self.contentView).offset(-2*WIDTH/16);
             make.centerY.equalTo(_rareItemImage).offset(1);
         }];
         
@@ -345,7 +346,7 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(5*WIDTH/16);
+            make.centerX.equalTo(self.contentView).offset(6*WIDTH/16);
             make.centerY.equalTo(_rareItemImage).offset(1);
         }];
         
@@ -759,33 +760,57 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
 
     //下方 耐性
     _labelResTitle.text = @"耐性";
-    _labelFire.text = [NSString stringWithFormat:@"   火   %i", (int)info.fireRes];
-    _labelIce.text = [NSString stringWithFormat:@"   冰   %i", (int)info.iceRes];
-    _labelThunder.text = [NSString stringWithFormat:@"   雷   %i", (int)info.thunderRes];
-    _labelEarth.text = [NSString stringWithFormat:@"   土   %i", (int)info.earthRes];
-    _labelWind.text = [NSString stringWithFormat:@"   风   %i", (int)info.windRes];
-    _labelDark.text = [NSString stringWithFormat:@"   暗   %i", (int)info.darkRes];
-    _labelLight.text = [NSString stringWithFormat:@"   光   %i", (int)info.lightRes];
-    _labelShui.text = [NSString stringWithFormat:@"  睡眠  %i", (int)info.shuiRes];
-    _labelHun.text = [NSString stringWithFormat:@"  混乱  %i", (int)info.hunRes];
-    _labelMei.text = [NSString stringWithFormat:@"  魅惑  %i", (int)info.meiRes];
-    _labelMa.text = [NSString stringWithFormat:@"  麻痹  %i", (int)info.maRes];
-    _labelZhong.text = [NSString stringWithFormat:@"  中毒  %i", (int)info.zhongRes];
-    _labelHuan.text = [NSString stringWithFormat:@"  幻觉  %i", (int)info.huanRes];
-    _labelFeng.text = [NSString stringWithFormat:@"  封印  %i", (int)info.fengRes];
-    _labelDa.text = [NSString stringWithFormat:@"  大笑  %i", (int)info.daRes];
-    _labelShuai.text = [NSString stringWithFormat:@"  摔倒  %i", (int)info.shuaiRes];
-    _labelShu.text = [NSString stringWithFormat:@"  束缚  %i", (int)info.shuRes];
-    _labelKong.text = [NSString stringWithFormat:@"  恐惧  %i", (int)info.kongRes];
-    _labelJi.text = [NSString stringWithFormat:@"  即死  %i", (int)info.jiRes];
-    _labelJifei.text = [NSString stringWithFormat:@"  击飞  %i", (int)info.jifeiRes];
-    _labelDaduan.text = [NSString stringWithFormat:@"  打断  %i", (int)info.daduanRes];
-    _labelNeng.text = [NSString stringWithFormat:@"能量吸收%i", (int)info.nengRes];
-    _labelNai.text = [NSString stringWithFormat:@"耐性降低%i", (int)info.naiRes];
-    _labelGong.text = [NSString stringWithFormat:@"攻击降低%i", (int)info.gongRes];
-    _labelFang.text = [NSString stringWithFormat:@"防御降低%i", (int)info.fangRes];
-    _labelXing.text = [NSString stringWithFormat:@"行动延长%i", (int)info.xingRes];
-    _labelZhongliang.text = [NSString stringWithFormat:@"重量减少%i", (int)info.zhongliangRes];
+    _labelFire.text = [NSString stringWithFormat:@"   火   ：%@（%i）", [self resStr:info.fireRes], (int)info.fireRes];
+    _labelIce.text = [NSString stringWithFormat:@"   冰   ：%@（%i）", [self resStr:info.iceRes], (int)info.iceRes];
+    _labelThunder.text = [NSString stringWithFormat:@"   雷   ：%@（%i）", [self resStr:info.thunderRes], (int)info.thunderRes];
+    _labelEarth.text = [NSString stringWithFormat:@"   土   ：%@（%i）", [self resStr:info.earthRes], (int)info.earthRes];
+    _labelWind.text = [NSString stringWithFormat:@"   风   ：%@（%i）", [self resStr:info.windRes], (int)info.windRes];
+    _labelDark.text = [NSString stringWithFormat:@"   暗   ：%@（%i）", [self resStr:info.darkRes], (int)info.darkRes];
+    _labelLight.text = [NSString stringWithFormat:@"   光   ：%@（%i）", [self resStr:info.lightRes], (int)info.lightRes];
+    _labelShui.text = [NSString stringWithFormat:@"  睡眠  ：%@（%i）", [self resStr:info.shuaiRes], (int)info.shuiRes];
+    _labelHun.text = [NSString stringWithFormat:@"  混乱  ：%@（%i）", [self resStr:info.hunRes], (int)info.hunRes];
+    _labelMei.text = [NSString stringWithFormat:@"  魅惑  ：%@（%i）", [self resStr:info.meiRes], (int)info.meiRes];
+    _labelMa.text = [NSString stringWithFormat:@"  麻痹  ：%@（%i）", [self resStr:info.maRes], (int)info.maRes];
+    _labelZhong.text = [NSString stringWithFormat:@"  中毒  ：%@（%i）", [self resStr:info.zhongRes], (int)info.zhongRes];
+    _labelHuan.text = [NSString stringWithFormat:@"  幻觉  ：%@（%i）", [self resStr:info.huanRes], (int)info.huanRes];
+    _labelFeng.text = [NSString stringWithFormat:@"  封印  ：%@（%i）", [self resStr:info.fengRes], (int)info.fengRes];
+    _labelDa.text = [NSString stringWithFormat:@"  大笑  ：%@（%i）", [self resStr:info.daRes], (int)info.daRes];
+    _labelShuai.text = [NSString stringWithFormat:@"  摔倒  ：%@（%i）", [self resStr:info.shuaiRes], (int)info.shuaiRes];
+    _labelShu.text = [NSString stringWithFormat:@"  束缚  ：%@（%i）", [self resStr:info.shuRes], (int)info.shuRes];
+    _labelKong.text = [NSString stringWithFormat:@"  恐惧  ：%@（%i）", [self resStr:info.kongRes], (int)info.kongRes];
+    _labelJi.text = [NSString stringWithFormat:@"  即死  ：%@（%i）", [self resStr:info.jiRes], (int)info.jiRes];
+    _labelJifei.text = [NSString stringWithFormat:@"  击飞  ：%@（%i）", [self resStr:info.jifeiRes], (int)info.jifeiRes];
+    _labelDaduan.text = [NSString stringWithFormat:@"  打断  ：%@（%i）", [self resStr:info.daduanRes], (int)info.daduanRes];
+    _labelNeng.text = [NSString stringWithFormat:@"能量吸收：%@（%i）", [self resStr:info.nengRes], (int)info.nengRes];
+    _labelNai.text = [NSString stringWithFormat:@"耐性降低：%@（%i）", [self resStr:info.naiRes], (int)info.naiRes];
+    _labelGong.text = [NSString stringWithFormat:@"攻击降低：%@（%i）", [self resStr:info.gongRes], (int)info.gongRes];
+    _labelFang.text = [NSString stringWithFormat:@"防御降低：%@（%i）", [self resStr:info.fangRes], (int)info.fangRes];
+    _labelXing.text = [NSString stringWithFormat:@"行动延长：%@（%i）", [self resStr:info.xingRes], (int)info.xingRes];
+    _labelZhongliang.text = [NSString stringWithFormat:@"重量减少：%@（%i）", [self resStr:info.zhongliangRes], (int)info.zhongliangRes];
+}
+
+-(NSString*)resStr:(NSInteger)i
+{
+    switch(i)
+    {
+        case 1:
+            return @"免疫";
+        case 2:
+            return @"免疫";
+        case 3:
+            return @"抵抗";
+        case 4:
+            return @"普通";
+        case 5:
+            return @"易中";
+        case 6:
+            return @"有效";
+        case 7:
+            return @"极效";
+        default:
+            return @"";
+    }
+    return @"";
 }
 
 @end

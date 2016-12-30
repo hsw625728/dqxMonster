@@ -63,7 +63,7 @@ NSString *const kDMTableMonsterListCellID = @"kDMTableMonsterListCellID";
         [self.contentView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.sizeOffset(CGSizeMake(ICON_WIDE, ICON_HEIGH));
-            make.centerY.equalTo(self.contentView).offset(2);
+            make.centerY.equalTo(self.contentView);
             make.left.equalTo(self.contentView).offset(8);
         }];
         
@@ -118,7 +118,7 @@ NSString *const kDMTableMonsterListCellID = @"kDMTableMonsterListCellID";
 {
     _labelName.text = name;
     _labelWeakLevel.text = lev;
-    _leftImageView.image = [UIImage imageNamed:name];
+    _leftImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_small", name]];
 }
 
 @end

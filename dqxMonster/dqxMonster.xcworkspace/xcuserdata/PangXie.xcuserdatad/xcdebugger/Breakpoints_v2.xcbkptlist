@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "dqxMonster/CustomViews/MonsterList/DMTableMonsterDetailCell.m"
-            timestampString = "504774467.015976"
+            timestampString = "504782306.018249"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "735"
-            endingLineNumber = "735"
+            startingLineNumber = "736"
+            endingLineNumber = "736"
             landmarkName = "-setMonsterName:"
             landmarkType = "7">
          </BreakpointContent>

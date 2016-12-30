@@ -175,7 +175,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [(DMTableMonsterListCell *)cell setMonsterName:dataSource[indexPath.row] weakLevel:@"点击查看制作所需素材"];
+    [(DMTableMonsterListCell *)cell setMonsterName:dataSource[indexPath.row] weakLevel:@"点击查看怪物详细信息"];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
