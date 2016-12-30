@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MBProgressHUD.h"
 #import "DMBaseViewController.h"
+#import "DMSearchViewController.h"
 
 @interface DMBaseViewController()
 
@@ -151,7 +152,7 @@
 #pragma mark - UI
 
 - (void)addNavigationBarLeftSearchItem {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(recipeButtonClicked)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonClicked)];
 }
 
 - (void)addNavigationBarRightMeItem {
@@ -160,8 +161,8 @@
 
 
 #pragma mark - Action
-- (void)recipeButtonClicked {
-    //[self.navigationController pushViewController:[[DRSearchViewController alloc] init] animated:YES];
+- (void)leftButtonClicked {
+    [self.navigationController pushViewController:[[DMSearchViewController alloc] init] animated:YES];
 }
 
 @end

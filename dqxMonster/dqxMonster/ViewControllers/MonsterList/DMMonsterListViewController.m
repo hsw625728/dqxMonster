@@ -48,6 +48,7 @@
     
     self.navigationItem.title = DMMonsterList;
     
+    [self addNavigationBarLeftSearchItem];
     [self setupViews];
     
     //设置导航栏
