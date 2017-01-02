@@ -53,7 +53,7 @@
 #define ISNULL(x) (x?((id)x==(id)[NSNull null]):true)
 
 //搜索选项
-#define MONSTER_SELECT_TYPE @[@"经验", @"金币", @"汗泪等级", @"耐性", @"耐性2", @"耐性3"]
+#define MONSTER_SELECT_TYPE @[@"经验", @"金币", @"汗泪等级", @"耐性1", @"耐性2", @"耐性3"]
 #define MONSTER_SELECT_TYPE_MIN @[@"", @"", @"", @"", @"", @""]
 #define MONSTER_SELECT_TYPE_MAX @[@"不设定", @"不设定", @"不设定", @"不设定", @"不设定", @"不设定"]
 #define SELECT_VALUE_NIL @[@"不设定"]

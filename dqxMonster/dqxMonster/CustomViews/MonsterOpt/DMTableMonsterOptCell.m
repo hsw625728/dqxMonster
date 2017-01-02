@@ -18,6 +18,7 @@ NSString *const kDMTableMonsterOptCellID = @"kDMTableMonsterOptCellID";
 @property (strong, nonatomic) UILabel *labelType;
 @property (strong, nonatomic) UILabel *labelMin;
 @property (strong, nonatomic) UILabel *labelMax;
+@property (strong, nonatomic) UILabel *label_;
 
 @end
 
@@ -55,6 +56,7 @@ NSString *const kDMTableMonsterOptCellID = @"kDMTableMonsterOptCellID";
     self.contentView.backgroundColor = [UIColor whiteColor];
     
     CGFloat contentViewWidth = CGRectGetWidth([UIScreen mainScreen ].applicationFrame);
+    const float WIDTH = contentViewWidth/16;
     //CGFloat lableX = ICON_WIDE + 8*2;
     
     _labelType = ({
@@ -78,7 +80,7 @@ NSString *const kDMTableMonsterOptCellID = @"kDMTableMonsterOptCellID";
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView);
-            make.left.equalTo(self.contentView.mas_centerX);
+            make.left.equalTo(self.contentView).offset(10*WIDTH);
         }];
         
         label;
@@ -91,12 +93,24 @@ NSString *const kDMTableMonsterOptCellID = @"kDMTableMonsterOptCellID";
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView);
-            make.left.equalTo(self.contentView.mas_right).offset(-60);
+            make.left.equalTo(self.contentView).offset(13*WIDTH);
         }];
         
         label;
     });
-    
+    _label_ = ({
+        UILabel *label = [UILabel new];
+        label.backgroundColor = [UIColor whiteColor];
+        label.font = FontWithSize(15);
+        label.textColor = DMLightBlackTextColor;
+        [self.contentView addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.contentView);
+            make.left.equalTo(self.contentView).offset(12*WIDTH);
+        }];
+        
+        label;
+    });
     UIImageView *forwardView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"forward_info"]];
     [self.contentView addSubview:forwardView];
     [forwardView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -110,8 +124,15 @@ NSString *const kDMTableMonsterOptCellID = @"kDMTableMonsterOptCellID";
 -(void)setSelectType:(NSString*)name minValue:(NSString*)min maxValue:(NSString*)max
 {
     _labelType.text = name;
-    _labelMin.text = min;
     _labelMax.text = max;
+    if ([max isEqualToString:@"不设定"]){
+        _label_.text = @"";
+        _labelMin.text = @"";
+    }
+    else{
+        _label_.text = @"~";
+        _labelMin.text = min;
+    }
 }
 
 @end

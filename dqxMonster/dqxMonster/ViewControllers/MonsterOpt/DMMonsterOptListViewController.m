@@ -12,10 +12,14 @@
 #import "View+MASAdditions.h"
 #import "DMMonsterDetailViewController.h"
 #import "DMMonsterDetailInfo.h"
+//Tencent
+#import "GDTMobBannerView.h" //导入GDTMobBannerView.h头文件
 
 @interface DMMonsterOptListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
+//Tencent
+@property (strong, nonatomic) GDTMobBannerView *bannerView;//声明一个GDTMobBannerView的实例
 
 @end
 
@@ -40,6 +44,23 @@
     
     [self initDatas];
     [self setupViews];
+    
+    //Tencent 5 号广告位
+    _bannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height -
+                                                                     GDTMOB_AD_SUGGEST_SIZE_320x50.height, self.view.frame.size.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:@"1105924448" placementId:@"5010711871382098"];
+    _bannerView.delegate = self; // 设置Delegate
+    _bannerView.currentViewController = self; //设置当前的ViewController
+    _bannerView.interval = 30; //【可选】设置广告轮播时间;范围为30~120秒,0表示不轮 播
+    _bannerView.isGpsOn = NO; //【可选】开启GPS定位;默认关闭
+    _bannerView.showCloseBtn = NO; //【可选】展示关闭按钮;默认显示
+    _bannerView.isAnimationOn = YES; //【可选】开启banner轮播和展现时的动画效果; 默认开启
+    [self.view addSubview:_bannerView]; //添加到当前的view中
+    [_bannerView loadAdAndShow];
+    [_bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(self.view.frame.size.width));
+        make.height.equalTo(@50);
+        make.bottom.left.equalTo(self.view);
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -91,7 +112,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [(DMTableMonsterListCell *)cell setMonsterName:dataSource[indexPath.row] weakLevel:@"点击查看怪物详细信息"];
+    [(DMTableMonsterListCell *)cell setMonsterName:dataSource[indexPath.row]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -132,6 +153,7 @@
         }
         else if(info.expJap < emin.integerValue || info.expJap > emax.integerValue){
             select = FALSE;
+            continue;
         }
         
         if ([gmax isEqualToString:@"不设定"]){
@@ -139,6 +161,7 @@
         }
         else if (select && (info.gold < gmin.integerValue || info.gold > gmax.integerValue)){
             select = FALSE;
+            continue;
         }
         
         if ([wmax isEqualToString:@"不设定"]){
@@ -146,6 +169,7 @@
         }
         else if (select && (info.weakLevel < wmin.integerValue || info.weakLevel > wmax.integerValue)){
             select = FALSE;
+            continue;
         }
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         [dic setValue:[NSString stringWithFormat:@"%i", (int)info.fireRes] forKey:@"火"];
@@ -188,6 +212,7 @@
         }
         else if(select && (((NSString*)dic[rt1]).intValue < ((NSString*)dicRes[rv1]).intValue)){
             select = FALSE;
+            continue;
         }
         
         if ([rt2 isEqualToString:@"不设定"]){
@@ -195,6 +220,7 @@
         }
         else if(select && (((NSString*)dic[rt2]).intValue < ((NSString*)dicRes[rv2]).intValue)){
             select = FALSE;
+            continue;
         }
         
         if ([rt3 isEqualToString:@"不设定"]){
@@ -202,6 +228,7 @@
         }
         else if(select && (((NSString*)dic[rt3]).intValue < ((NSString*)dicRes[rv3]).intValue)){
             select = FALSE;
+            continue;
         }
         if (select)
         {

@@ -58,9 +58,9 @@
     [self initDatas];
     [self setupViews];
     
-    //Tencent 4 号广告位
+    //Tencent 1 号广告位
     _bannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height -
-                                                                     GDTMOB_AD_SUGGEST_SIZE_320x50.height, self.view.frame.size.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:@"1105827469" placementId:@"6010714789904685"];
+                                                                     GDTMOB_AD_SUGGEST_SIZE_320x50.height, self.view.frame.size.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:@"1105924448" placementId:@"6010819811074939"];
     _bannerView.delegate = self; // 设置Delegate
     _bannerView.currentViewController = self; //设置当前的ViewController
     _bannerView.interval = 30; //【可选】设置广告轮播时间;范围为30~120秒,0表示不轮 播
@@ -132,7 +132,7 @@
     */
     NSArray *category = [appDelegate.gMonsterCategroy allKeys];
     NSArray *monstersName = [appDelegate.gMonsterCategroy objectForKey:category[indexPath.section]];
-    [cell setMonsterName:monstersName[indexPath.row] weakLevel:monstersName[indexPath.row]];
+    [cell setMonsterName:monstersName[indexPath.row]];
      return cell;
 }
 

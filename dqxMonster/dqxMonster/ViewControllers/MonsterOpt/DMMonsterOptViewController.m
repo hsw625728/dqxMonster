@@ -71,42 +71,9 @@
     [self initDatas];
     [self setupViews];
     
-    //特技列表详情页最下方常驻的Google广告
-    /*
-     NSMutableArray *history;
-     NSString *docPath =  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-     NSString *path = [docPath stringByAppendingPathComponent:@"RecipeHistory"];
-     
-     history = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-     if (ISNULL(history))
-     history = [[NSMutableArray alloc] init];
-     
-     _bannerView = [[GADBannerView alloc] initWithFrame:CGRectMake(0.0,
-     self.view.frame.size.height -
-     GAD_SIZE_320x50.height,
-     self.view.frame.size.width,
-     GAD_SIZE_320x50.height)];
-     NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
-     //4号横幅广告位
-     self.bannerView.adUnitID = @"ca-app-pub-9308902363520222/3901466590";
-     //Google AdMob提供的测试广告ID
-     //self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
-     self.bannerView.rootViewController = self;
-     GADRequest *request = [GADRequest request];
-     //request.testDevices = @[ @"66fc40441247f9df253bbcaa32f528bb" ];
-     [self.bannerView loadRequest:request];
-     
-     [self.view addSubview:_bannerView];
-     [_bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
-     make.width.equalTo(@(self.view.frame.size.width));
-     make.height.equalTo(@50);
-     make.bottom.left.equalTo(self.view);
-     }];
-     */
     //Tencent 4 号广告位
-    /*
     _bannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height -
-                                                                     GDTMOB_AD_SUGGEST_SIZE_320x50.height, self.view.frame.size.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:@"1105827469" placementId:@"6010714789904685"];
+                                                                     GDTMOB_AD_SUGGEST_SIZE_320x50.height, self.view.frame.size.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:@"1105924448" placementId:@"8090212861980077"];
     _bannerView.delegate = self; // 设置Delegate
     _bannerView.currentViewController = self; //设置当前的ViewController
     _bannerView.interval = 30; //【可选】设置广告轮播时间;范围为30~120秒,0表示不轮 播
@@ -120,7 +87,6 @@
         make.height.equalTo(@50);
         make.bottom.left.equalTo(self.view);
     }];
-     */
 }
 #pragma mark - Private Method
 
@@ -272,8 +238,13 @@
             break;
     }
     
-    [_pickerView reloadAllComponents];
     [_pickerView selectRow:0 inComponent:0 animated:NO];
+    resValue = SELECT_VALUE_NIL;
+    expValue = SELECT_VALUE_NIL;
+    goldValue = SELECT_VALUE_NIL;
+    weakValue = SELECT_VALUE_NIL;
+    //[_pickerView selectRow:0 inComponent:1 animated:NO];
+    [_pickerView reloadAllComponents];
 }
 
 #pragma mark - UIPickerViewDataSource

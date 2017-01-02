@@ -17,7 +17,7 @@ FOUNDATION_EXPORT NSString *const kDMTableMonsterListCellID;
 @interface DMTableMonsterListCell : DMBaseCell
 
 + (CGFloat)cellHeight;
--(void)setMonsterName:(NSString*)name weakLevel:(NSString*)lev;
+-(void)setMonsterName:(NSString*)name;
 
 @end
 
