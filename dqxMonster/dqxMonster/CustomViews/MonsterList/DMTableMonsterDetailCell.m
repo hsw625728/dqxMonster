@@ -176,7 +176,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            //make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.left.equalTo(self.contentView).offset(5*WIDTH/8);
             make.top.equalTo(self.contentView).offset(offsetRightTop+rightTopOffset);
         }];
         
@@ -189,7 +190,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            //make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.left.equalTo(_labelHp);
             make.top.equalTo(self.contentView).offset(2*offsetRightTop+rightTopOffset);
         }];
         
@@ -202,7 +204,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            //make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.left.equalTo(_labelHp);
             make.top.equalTo(self.contentView).offset(3*offsetRightTop+rightTopOffset);
         }];
         
@@ -215,7 +218,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            //make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.left.equalTo(_labelHp);
             make.top.equalTo(self.contentView).offset(4*offsetRightTop+rightTopOffset);
         }];
         
@@ -228,7 +232,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            //make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.left.equalTo(_labelHp);
             make.top.equalTo(self.contentView).offset(5*offsetRightTop+rightTopOffset);
         }];
         
@@ -241,7 +246,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            //make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.left.equalTo(_labelHp);
             make.top.equalTo(self.contentView).offset(6*offsetRightTop+rightTopOffset);
         }];
         
@@ -254,7 +260,8 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
         label.textColor = DMLightBlackTextColor;
         [self.contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            //make.centerX.equalTo(self.contentView).offset(WIDTH/4);
+            make.left.equalTo(_labelHp);
             make.top.equalTo(self.contentView).offset(7*offsetRightTop+rightTopOffset);
         }];
         
@@ -741,13 +748,13 @@ NSString *const kDMTableMonsterDetailCellID = @"kDMTableMonsterDetailCellID";
     
     //右上角 基础信息
     _labelInfoTitle.text = @"基础信息";
-    _labelHp.text = [NSString stringWithFormat:@"  体    力  %i", (int)info.hp];
-    _labelAtk.text = [NSString stringWithFormat:@"攻 击 力%i", (int)info.atk];
-    _labelArm.text = [NSString stringWithFormat:@"防 御 力%i", (int)info.arm];
-    _labelExp.text = [NSString stringWithFormat:@"  经    验  %i", (int)info.expJap];
-    _labelGold.text = [NSString stringWithFormat:@"  金    币  %i", (int)info.gold];
-    _labelWeaklevel.text = [NSString stringWithFormat:@"汗泪等级%i", (int)info.weakLevel];
-    _labelWeight.text = [NSString stringWithFormat:@"  重    量  %i", (int)info.weight];
+    _labelHp.text = [NSString stringWithFormat:@"体        力：%3i", (int)info.hp];
+    _labelAtk.text = [NSString stringWithFormat:@"攻  击  力：%3i", (int)info.atk];
+    _labelArm.text = [NSString stringWithFormat:@"防  御  力：%3i", (int)info.arm];
+    _labelExp.text = [NSString stringWithFormat:@"经        验：%3i", (int)info.expJap];
+    _labelGold.text = [NSString stringWithFormat:@"金        币：%3i", (int)info.gold];
+    _labelWeaklevel.text = [NSString stringWithFormat:@"汗泪等级：%3i", (int)info.weakLevel];
+    _labelWeight.text = [NSString stringWithFormat:@"重        量：%3i", (int)info.weight];
     
     //中间 获得道具
     _itemImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"Icon-%@", info.dropItem]];

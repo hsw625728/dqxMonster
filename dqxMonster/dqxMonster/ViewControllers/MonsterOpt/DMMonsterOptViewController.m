@@ -16,10 +16,10 @@
 //Tencent
 #import "GDTMobBannerView.h" //导入GDTMobBannerView.h头文件
 
-@interface DMMonsterOptViewController() <UITableViewDataSource, UITableViewDelegate>
+@interface DMMonsterOptViewController() <UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) UITableView *tableView;
-//@property (strong, nonatomic) GADBannerView  *bannerView;
+@property (strong, nonatomic) UIPickerView *pickerView;
 //Tencent
 @property (strong, nonatomic) GDTMobBannerView *bannerView;//声明一个GDTMobBannerView的实例
 
@@ -27,6 +27,9 @@
 
 @implementation DMMonsterOptViewController{
     AppDelegate *appDelegate;
+    NSArray *selectType;
+    NSArray *resType;
+    NSArray *resValue;
 }
 
 #pragma mark - Lifecycle
@@ -89,6 +92,7 @@
      }];
      */
     //Tencent 4 号广告位
+    /*
     _bannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height -
                                                                      GDTMOB_AD_SUGGEST_SIZE_320x50.height, self.view.frame.size.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:@"1105827469" placementId:@"6010714789904685"];
     _bannerView.delegate = self; // 设置Delegate
@@ -104,11 +108,15 @@
         make.height.equalTo(@50);
         make.bottom.left.equalTo(self.view);
     }];
+     */
 }
 #pragma mark - Private Method
 
 - (void)initDatas {
     appDelegate =  (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    selectType = MONSTER_SELECT_TYPE;
+    resType = RES_TYPE;
+    resValue = RES_VALUE;
 }
 
 - (void)setupViews {
@@ -128,9 +136,26 @@
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
         }];
-        
+        [tableView setHidden:YES];
         tableView;
     });
+    
+    _pickerView = ({
+        UIPickerView *pickview = [[UIPickerView alloc] initWithFrame:self.view.bounds];
+        pickview.dataSource = self;
+        pickview.delegate = self;
+        [self.view addSubview:pickview];
+        [pickview mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@(self.view.frame.size.width));
+            make.height.equalTo(@200);
+            make.bottom.left.equalTo(self.view);
+            //make.edges.equalTo(self.view);
+        }];
+
+        pickview;
+    }
+    );
+    [self.pickerView reloadAllComponents];
 }
 #pragma mark - UIScrollViewDelegate
 
@@ -148,7 +173,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //NSArray *rows = appDelegate.gSkillInfo.skillName[section];
     //return rows.count;
-    return 1;
+    return selectType.count;
 }
 
 
@@ -161,6 +186,7 @@
      model.skillDesc = appDelegate.gSkillInfo.skillDesc[indexPath.section][indexPath.row];
      [(DSTableDetailCell *)cell configureCellWithSearchItem:(DSSkillDetailItem *)model];
      */
+    [cell setMonsterName:selectType[indexPath.row] weakLevel:selectType[indexPath.row]];
     return cell;
 }
 
@@ -186,4 +212,81 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - UIPickerViewDataSource
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 2;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    if (component == 0){
+        return 27;
+    }
+    else{
+        return 7;
+    }
+}
+
+-(CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
+    return 20;
+}
+
+-(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
+    if (component == 0){
+        return 80;
+    }
+    else{
+        return 80;
+    }
+}
+
+#pragma mark - UIPickerViewDataDelegate
+/*
+-(UIView*)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    if (!view){
+        view = [[UIPickerView alloc] init];
+    }
+    if (component == 0){
+        UILabel *text = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 20)];
+        //text.textAlignment = NSTextAlignmentCenter;
+        text.text = resType[row];
+        [view addSubview:text];
+    }
+    else{
+        UILabel *text = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2, 0, 80, 20)];
+        //text.textAlignment = NSTextAlignmentCenter;
+        text.text = resValue[row];
+        [view addSubview:text];
+    }
+    return view;
+}
+*/
+-(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    if (component == 0){
+        return resType[row];
+    }
+    else{
+        return resValue[row];
+    }
+}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if (component == 0) {
+        [pickerView selectedRowInComponent:0];
+        
+        /**
+         *  选中第0列时需要刷新第1列和第二列的数据
+         */
+        //NSDictionary *provinceDict = [self.provinceArray objectAtIndex:row];
+        //self.cityArray = provinceDict[@"l"];
+        [pickerView reloadComponent:1];
+        
+        
+    } else if (component == 1) {
+        [pickerView selectedRowInComponent:1];
+        
+        /**
+         *  选中第一列时需要刷新第二列的数据信息
+         */
+        
+    }
+}
 @end
