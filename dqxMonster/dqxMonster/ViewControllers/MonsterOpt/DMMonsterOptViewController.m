@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "DMMonsterOptViewController.h"
+#import "DMMonsterOptListViewController.h"
 #import "View+MASAdditions.h"
 #import "UIImage+Common.h"
 #import "DMMonsterDetailInfo.h"
-#import "DMTableMonsterListCell.h"
+#import "DMTableMonsterOptCell.h"
 #import "DMTableHeaderView.h"
 //Tencent
 #import "GDTMobBannerView.h" //导入GDTMobBannerView.h头文件
@@ -20,6 +21,8 @@
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) UIPickerView *pickerView;
+@property (strong, nonatomic) UIButton *btnSelectDone;
+@property (strong, nonatomic) UIButton *btnSearch;
 //Tencent
 @property (strong, nonatomic) GDTMobBannerView *bannerView;//声明一个GDTMobBannerView的实例
 
@@ -27,9 +30,18 @@
 
 @implementation DMMonsterOptViewController{
     AppDelegate *appDelegate;
-    NSArray *selectType;
+    NSInteger selectSetType;
+    NSMutableArray *selectType;
+    NSMutableArray *selectMin;
+    NSMutableArray *selectMax;
     NSArray *resType;
     NSArray *resValue;
+    NSArray *expType;
+    NSArray *expValue;
+    NSArray *goldType;
+    NSArray *goldValue;
+    NSArray *weakType;
+    NSArray *weakValue;
 }
 
 #pragma mark - Lifecycle
@@ -114,9 +126,18 @@
 
 - (void)initDatas {
     appDelegate =  (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    selectType = MONSTER_SELECT_TYPE;
+    selectSetType = 0;
+    selectType = [[NSMutableArray alloc] initWithArray:MONSTER_SELECT_TYPE];
+    selectMin = [[NSMutableArray alloc] initWithArray:MONSTER_SELECT_TYPE_MIN];
+    selectMax = [[NSMutableArray alloc] initWithArray:MONSTER_SELECT_TYPE_MAX];
     resType = RES_TYPE;
-    resValue = RES_VALUE;
+    resValue = SELECT_VALUE_NIL;
+    expType = EXP_TYPE;
+    expValue = SELECT_VALUE_NIL;
+    goldType = GOLD_TYPE;
+    goldValue = SELECT_VALUE_NIL;
+    weakType = WEAK_TYPE;
+    weakValue = SELECT_VALUE_NIL;
 }
 
 - (void)setupViews {
@@ -127,16 +148,16 @@
         tableView.delegate = self;
         
         [tableView registerClass:[DMTableHeaderView class] forHeaderFooterViewReuseIdentifier:kDMTableHeaderViewID];
-        [tableView registerClass:[DMTableMonsterListCell class] forCellReuseIdentifier:kDMTableMonsterListCellID];
+        [tableView registerClass:[DMTableMonsterOptCell class] forCellReuseIdentifier:kDMTableMonsterOptCellID];
         
-        tableView.rowHeight = [DMTableMonsterListCell cellHeight];
+        tableView.rowHeight = [DMTableMonsterOptCell cellHeight];
         
         
         [self.view addSubview:tableView];
         [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view);
         }];
-        [tableView setHidden:YES];
+        //[tableView setHidden:YES];
         tableView;
     });
     
@@ -144,17 +165,46 @@
         UIPickerView *pickview = [[UIPickerView alloc] initWithFrame:self.view.bounds];
         pickview.dataSource = self;
         pickview.delegate = self;
+        pickview.backgroundColor = DMLightGrayTextColor;
+        [pickview setHidden:YES];
         [self.view addSubview:pickview];
         [pickview mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@(self.view.frame.size.width));
-            make.height.equalTo(@200);
-            make.bottom.left.equalTo(self.view);
-            //make.edges.equalTo(self.view);
+            make.height.equalTo(@260);
+            make.top.equalTo(self.view).offset(24);
+            make.left.equalTo(self.view);
         }];
 
         pickview;
-    }
-    );
+    });
+    
+    _btnSelectDone = ({
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [btn setTitle:@"完成" forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(btnDone) forControlEvents:UIControlEventTouchUpInside];
+        [btn setHidden:YES];
+        [self.view addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(_pickerView.mas_right);
+            make.top.equalTo(_pickerView.mas_top);
+            //make.bottom.left.equalTo(self.view);
+        }];
+        btn;
+    });
+    
+    _btnSearch = ({
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [btn setTitle:@"开始筛选" forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(btnSearch) forControlEvents:UIControlEventTouchUpInside];
+        [btn setHidden:NO];
+        [self.view addSubview:btn];
+        [btn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.view.mas_centerX);
+            make.bottom.equalTo(self.view).offset(-50);
+            //make.bottom.left.equalTo(self.view);
+        }];
+        btn;
+    });
     [self.pickerView reloadAllComponents];
 }
 #pragma mark - UIScrollViewDelegate
@@ -178,15 +228,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DMTableMonsterListCell *cell = [tableView dequeueReusableCellWithIdentifier:kDMTableMonsterListCellID forIndexPath:indexPath];
-    /*
-     DSSkillDetailItem *model = [[DSSkillDetailItem alloc] init];
-     model.skillName = appDelegate.gSkillInfo.skillName[indexPath.section][indexPath.row];
-     model.skillPoint = appDelegate.gSkillInfo.skillPoint[indexPath.section][indexPath.row];
-     model.skillDesc = appDelegate.gSkillInfo.skillDesc[indexPath.section][indexPath.row];
-     [(DSTableDetailCell *)cell configureCellWithSearchItem:(DSSkillDetailItem *)model];
-     */
-    [cell setMonsterName:selectType[indexPath.row] weakLevel:selectType[indexPath.row]];
+    DMTableMonsterOptCell *cell = [tableView dequeueReusableCellWithIdentifier:kDMTableMonsterOptCellID forIndexPath:indexPath];
+    
+    [cell setSelectType:selectType[indexPath.row] minValue:selectMin[indexPath.row] maxValue:selectMax[indexPath.row
+                                                                                                       ]];
     return cell;
 }
 
@@ -199,7 +244,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     DMTableHeaderView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:kDMTableHeaderViewID];
-    //view.titleLabel.text = appDelegate.gSkillInfo.typeName[section];
+    view.titleLabel.text = @"设置筛选条件";
     
     return view;
 }
@@ -210,6 +255,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    selectSetType = indexPath.row;
+    switch(selectSetType)
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            [_pickerView setHidden:NO];
+            [_btnSelectDone setHidden:NO];
+            [_btnSearch setHidden:YES];
+            break;
+        default:
+            break;
+    }
+    
+    [_pickerView reloadAllComponents];
+    [_pickerView selectRow:0 inComponent:0 animated:NO];
 }
 
 #pragma mark - UIPickerViewDataSource
@@ -218,11 +282,25 @@
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    if (component == 0){
-        return 27;
-    }
-    else{
-        return 7;
+    switch(selectSetType)
+    {
+        case 0:
+            return (component == 0 ? expType.count : expValue.count);
+            break;
+        case 1:
+            return (component == 0 ? goldType.count : goldValue.count);
+            break;
+        case 2:
+            return (component == 0 ? weakType.count : weakValue.count);
+            break;
+        case 3:
+        case 4:
+        case 5:
+            return (component == 0 ? resType.count : resValue.count);
+            break;
+        default:
+            return 0;
+            break;
     }
 }
 
@@ -232,10 +310,10 @@
 
 -(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component{
     if (component == 0){
-        return 80;
+        return 200;
     }
     else{
-        return 80;
+        return 200;
     }
 }
 
@@ -260,33 +338,101 @@
     return view;
 }
 */
+
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    if (component == 0){
-        return resType[row];
+    switch(selectSetType)
+    {
+        case 0:
+            return (component == 0 ? expType[row] : expValue[row]);
+            break;
+        case 1:
+            return (component == 0 ? goldType[row] : goldValue[row]);
+            break;
+        case 2:
+            return (component == 0 ? weakType[row] : weakValue[row]);
+            break;
+        case 3:
+        case 4:
+        case 5:
+            if (component == 0){
+                return resType[row];
+            }
+            else{
+                return resValue[row];
+            }
+            break;
+        default:
+            break;
     }
-    else{
-        return resValue[row];
+    return @"";
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if (component == 0 && row == 0){
+        expValue = SELECT_VALUE_NIL;
+        goldValue = SELECT_VALUE_NIL;
+        weakValue = SELECT_VALUE_NIL;
+        resValue = SELECT_VALUE_NIL;
+        [pickerView reloadComponent:1];
+    }
+    else if(component == 0 && row != 0){
+        switch(selectSetType)
+        {
+            case 0:
+                expValue = EXP_VALUE;
+                break;
+            case 1:
+                goldValue = GOLD_VALUE;
+                break;
+            case 2:
+                weakValue = WEAK_VALUE;
+                break;
+            case 3:
+            case 4:
+            case 5:
+                resValue = RES_VALUE;
+                break;
+            default:
+                break;
+        }
+        [pickerView reloadComponent:1];
     }
 }
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    if (component == 0) {
-        [pickerView selectedRowInComponent:0];
-        
-        /**
-         *  选中第0列时需要刷新第1列和第二列的数据
-         */
-        //NSDictionary *provinceDict = [self.provinceArray objectAtIndex:row];
-        //self.cityArray = provinceDict[@"l"];
-        [pickerView reloadComponent:1];
-        
-        
-    } else if (component == 1) {
-        [pickerView selectedRowInComponent:1];
-        
-        /**
-         *  选中第一列时需要刷新第二列的数据信息
-         */
-        
+-(void)btnDone{
+    switch(selectSetType)
+    {
+        case 0:
+            selectMin[selectSetType] = expType[[_pickerView selectedRowInComponent:0]];
+            selectMax[selectSetType] = expValue[[_pickerView selectedRowInComponent:1]];
+            break;
+        case 1:
+            selectMin[selectSetType] = goldType[[_pickerView selectedRowInComponent:0]];
+            selectMax[selectSetType] = goldValue[[_pickerView selectedRowInComponent:1]];
+            break;
+        case 2:
+            selectMin[selectSetType] = weakType[[_pickerView selectedRowInComponent:0]];
+            selectMax[selectSetType] = weakValue[[_pickerView selectedRowInComponent:1]];
+            break;
+        case 3:
+        case 4:
+        case 5:
+            selectMin[selectSetType] = resType[[_pickerView selectedRowInComponent:0]];
+            selectMax[selectSetType] = resValue[[_pickerView selectedRowInComponent:1]];
+            break;
+        default:
+            break;
     }
+
+    [_tableView reloadData];
+    
+    [_pickerView setHidden:YES];
+    [_btnSelectDone setHidden:YES];
+    [_btnSearch setHidden:NO];
+}
+
+-(void)btnSearch{
+    DMMonsterOptListViewController *viewController = [[DMMonsterOptListViewController alloc] init];
+    [viewController setSelectValue:selectMin[0] expMax:selectMax[0] goldMin:selectMin[1] goldMax:selectMax[1] weakMin:selectMin[2] weakMax:selectMax[2] resType1:selectMin[3] resValue1:selectMax[3] resType2:selectMin[4] resValue2:selectMax[4] resType3:selectMin[5] resValue3:selectMax[5]];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 @end

@@ -37,6 +37,8 @@
 		5812FA4D1E14A64F00EEA340 /* DMMonsterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812FA4C1E14A64F00EEA340 /* DMMonsterDetailViewController.m */; };
 		5812FA521E14AA0200EEA340 /* DMTableMonsterDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812FA511E14AA0200EEA340 /* DMTableMonsterDetailCell.m */; };
 		588E77271E16433300400CB8 /* DMSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588E77261E16433300400CB8 /* DMSearchViewController.m */; };
+		842C06121E19F73000197660 /* DMTableMonsterOptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 842C06111E19F73000197660 /* DMTableMonsterOptCell.m */; };
+		842C06161E1A1CF100197660 /* DMMonsterOptListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842C06151E1A1CF100197660 /* DMMonsterOptListViewController.m */; };
 		F9241F6ED493D7E0CA7F0C9D /* libPods-dqxMonster.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DA9651918A7B8E8CF4AED2 /* libPods-dqxMonster.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,10 @@
 		5812FA511E14AA0200EEA340 /* DMTableMonsterDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTableMonsterDetailCell.m; path = CustomViews/MonsterList/DMTableMonsterDetailCell.m; sourceTree = "<group>"; };
 		588E77261E16433300400CB8 /* DMSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMSearchViewController.m; path = ViewControllers/MonsterList/DMSearchViewController.m; sourceTree = "<group>"; };
 		588E77281E16434000400CB8 /* DMSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DMSearchViewController.h; path = ViewControllers/MonsterList/DMSearchViewController.h; sourceTree = "<group>"; };
+		842C06111E19F73000197660 /* DMTableMonsterOptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMTableMonsterOptCell.m; path = CustomViews/MonsterOpt/DMTableMonsterOptCell.m; sourceTree = "<group>"; };
+		842C06131E19F73F00197660 /* DMTableMonsterOptCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DMTableMonsterOptCell.h; path = CustomViews/MonsterOpt/DMTableMonsterOptCell.h; sourceTree = "<group>"; };
+		842C06141E1A1CDA00197660 /* DMMonsterOptListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DMMonsterOptListViewController.h; path = ViewControllers/MonsterOpt/DMMonsterOptListViewController.h; sourceTree = "<group>"; };
+		842C06151E1A1CF100197660 /* DMMonsterOptListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMMonsterOptListViewController.m; path = ViewControllers/MonsterOpt/DMMonsterOptListViewController.m; sourceTree = "<group>"; };
 		BB175F1979EB6AD74FFBC22C /* Pods-dqxMonster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dqxMonster.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dqxMonster/Pods-dqxMonster.debug.xcconfig"; sourceTree = "<group>"; };
 		D4DA9651918A7B8E8CF4AED2 /* libPods-dqxMonster.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dqxMonster.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEABFDAC9CA7397846EBF508 /* Pods-dqxMonster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dqxMonster.release.xcconfig"; path = "Pods/Target Support Files/Pods-dqxMonster/Pods-dqxMonster.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,7 +207,7 @@
 			children = (
 				580603F31E1364F400E127C9 /* MonsterList */,
 				580603F21E1364EC00E127C9 /* AppSetting */,
-				580603F11E1364D900E127C9 /* MonsterDetail */,
+				580603F11E1364D900E127C9 /* MonsterOpt */,
 				580603F01E1364CF00E127C9 /* Base */,
 			);
 			name = CustomViews;
@@ -249,6 +255,8 @@
 			children = (
 				580604231E13955700E127C9 /* DMMonsterOptViewController.h */,
 				580604241E13956500E127C9 /* DMMonsterOptViewController.m */,
+				842C06141E1A1CDA00197660 /* DMMonsterOptListViewController.h */,
+				842C06151E1A1CF100197660 /* DMMonsterOptListViewController.m */,
 			);
 			name = MonsterOpt;
 			sourceTree = "<group>";
@@ -304,11 +312,13 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
-		580603F11E1364D900E127C9 /* MonsterDetail */ = {
+		580603F11E1364D900E127C9 /* MonsterOpt */ = {
 			isa = PBXGroup;
 			children = (
+				842C06111E19F73000197660 /* DMTableMonsterOptCell.m */,
+				842C06131E19F73F00197660 /* DMTableMonsterOptCell.h */,
 			);
-			name = MonsterDetail;
+			name = MonsterOpt;
 			sourceTree = "<group>";
 		};
 		580603F21E1364EC00E127C9 /* AppSetting */ = {
@@ -490,12 +500,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				580603E71E13646C00E127C9 /* DMBaseViewController.m in Sources */,
+				842C06121E19F73000197660 /* DMTableMonsterOptCell.m in Sources */,
 				588E77271E16433300400CB8 /* DMSearchViewController.m in Sources */,
 				580604281E139A4D00E127C9 /* DMTableMonsterListCell.m in Sources */,
 				580604031E1365B000E127C9 /* DZNSegmentedControl.m in Sources */,
 				580603FF1E13654900E127C9 /* DMTableAppSettingCell.m in Sources */,
 				580603E11E13643300E127C9 /* DMAppSettingViewController.m in Sources */,
 				5812FA4D1E14A64F00EEA340 /* DMMonsterDetailViewController.m in Sources */,
+				842C06161E1A1CF100197660 /* DMMonsterOptListViewController.m in Sources */,
 				580603BF1E135DBC00E127C9 /* AppDelegate.m in Sources */,
 				5812FA521E14AA0200EEA340 /* DMTableMonsterDetailCell.m in Sources */,
 				580603FA1E13653C00E127C9 /* DMBaseCell.m in Sources */,
