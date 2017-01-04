@@ -80,8 +80,8 @@
 
 - (void)initDatas {
     sectionTitles = @[@"软件相关", @"操作说明"];
-    rowTitles = @[@[@"版本号：1.1", @"DQX相关工具", @"建议反馈邮箱：hsw625728@163.com"], @[@"主界面操作示例", @"等级设置界面操作示例", @"职业技能点洁面操作示例"]];
-    rowImageNames = @[@[@"nav_me_normal", @"center_setting", @"tab_music_normal"], @[@"tab_movie_normal", @"tab_movie_normal", @"tab_movie_normal"]];
+    rowTitles = @[@[@"DQX相关工具", @"建议反馈邮箱：hsw625728@163.com"], @[@"条件筛选界面操作示例"]];
+    rowImageNames = @[@[@"center_setting", @"tab_music_normal"], @[@"tab_movie_normal"]];
 }
 
 - (void)setupViews {
@@ -165,8 +165,8 @@
     {
         switch (indexPath.row)
         {
-            case 1:
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/zhi-ren-pei-fang-su-caifor-dqx/id1181736107?l=zh&ls=1&mt=8"]];
+            case 0:
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/us/app/dqx-ji-neng-dian-fen-pei-mo/id1187694327?l=zh&ls=1&mt=8"]];
                 break;
             default:
                 break;
@@ -177,12 +177,6 @@
         switch (indexPath.row) {
             case 0:
                 [view setHelpImageName:@"help_main"];
-                break;
-            case 1:
-                [view setHelpImageName:@"help_level"];
-                break;
-            case 2:
-                [view setHelpImageName:@"help_point"];
                 break;
             default:
                 break;

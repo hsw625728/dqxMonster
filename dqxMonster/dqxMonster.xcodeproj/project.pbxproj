@@ -410,8 +410,7 @@
 				TargetAttributes = {
 					580603B61E135DBC00E127C9 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 887CVK63XR;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -639,7 +638,7 @@
 			baseConfigurationReference = BB175F1979EB6AD74FFBC22C /* Pods-dqxMonster.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 887CVK63XR;
+				DEVELOPMENT_TEAM = "";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = dqxMonster/dqxMonster.pch;
@@ -660,6 +659,7 @@
 			baseConfigurationReference = DEABFDAC9CA7397846EBF508 /* Pods-dqxMonster.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 887CVK63XR;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -673,6 +673,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.mengyoutu.dqxMonster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a52aca3c-d907-4ab2-afef-6016e6ee23ca";
+				PROVISIONING_PROFILE_SPECIFIER = dqxMonster;
 			};
 			name = Release;
 		};
