@@ -58,8 +58,7 @@
     [self setupViews];
     
     //Tencent 3 号广告位
-    _bannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height -
-                                                                     GDTMOB_AD_SUGGEST_SIZE_320x50.height, self.view.frame.size.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:@"1105924448" placementId:@"6040217851983026"];
+    _bannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - GDTMOB_AD_SUGGEST_SIZE_320x50.height, self.view.frame.size.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:@"1105924448" placementId:@"6040217851983026"];
     _bannerView.delegate = self; // 设置Delegate
     _bannerView.currentViewController = self; //设置当前的ViewController
     _bannerView.interval = 30; //【可选】设置广告轮播时间;范围为30~120秒,0表示不轮 播

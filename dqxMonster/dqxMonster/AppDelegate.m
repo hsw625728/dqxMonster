@@ -35,11 +35,49 @@
     //[[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:DMNavigationBarTitleTextColor];
     
-    
     _window.rootViewController = [[DMTabBarController alloc] init];
+    
+    //开屏广告
+    GDTSplashAd *splash = [[GDTSplashAd alloc] initWithAppkey:@"1105924448" placementId:@"8000810884567461"];
+    splash.delegate = self; //设置代理
+    //根据iPhone设备不同设置不同背景图
+    /*
+    if ([[UIScreen mainScreen] bounds].size.height >= 568.0f) {
+        splash.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"LaunchImage-568h"]];
+    } else {
+        splash.backgroundColor = [UIColor colorWithPatternImage:[UIImage
+                                                                 imageNamed:@"LaunchImage"]]; }
+     */
+    splash.fetchDelay = 6; //开发者可以设置开屏拉取时间,超时则放弃展示
+    //[可选]拉取并展示全屏开屏广告
+    [splash loadAdAndShowInWindow:self.window];
+    self.splash = splash;
+    
+    
     return YES;
 }
 
+//开屏广告
+//开屏广告成功展示
+-(void)splashAdSuccessPresentScreen:(GDTSplashAd *)splashAd{
+    
+}
+//开屏广告展示失败
+-(void)splashAdFailToPresent:(GDTSplashAd *)splashAd withError:(NSError *)error{
+    
+}
+//应用进入后台时回调
+- (void)splashAdApplicationWillEnterBackground:(GDTSplashAd *)splashAd{
+    
+}
+//开屏广告点击回调
+- (void)splashAdClicked:(GDTSplashAd *)splashAd{
+    
+}
+//开屏广告关闭回调
+- (void)splashAdClosed:(GDTSplashAd *)splashAd{
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
