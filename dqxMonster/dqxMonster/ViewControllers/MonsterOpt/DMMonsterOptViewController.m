@@ -72,6 +72,7 @@
     [self setupViews];
     
     //Tencent 4 号广告位
+    /*
     _bannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - GDTMOB_AD_SUGGEST_SIZE_320x50.height, self.view.frame.size.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:@"1105924448" placementId:@"8090212861980077"];
     _bannerView.delegate = self; // 设置Delegate
     _bannerView.currentViewController = self; //设置当前的ViewController
@@ -86,6 +87,7 @@
         make.height.equalTo(@50);
         make.bottom.left.equalTo(self.view);
     }];
+     */
 }
 #pragma mark - Private Method
 

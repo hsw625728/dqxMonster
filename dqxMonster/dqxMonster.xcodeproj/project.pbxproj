@@ -676,7 +676,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.mengyoutu.dqxMonster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a52aca3c-d907-4ab2-afef-6016e6ee23ca";
+				PROVISIONING_PROFILE = "441165f5-4dd7-4128-a823-3292574efad4";
 				PROVISIONING_PROFILE_SPECIFIER = dqxMonster;
 			};
 			name = Release;

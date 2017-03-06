@@ -38,21 +38,22 @@
     _window.rootViewController = [[DMTabBarController alloc] init];
     
     //开屏广告
+    /*
     GDTSplashAd *splash = [[GDTSplashAd alloc] initWithAppkey:@"1105924448" placementId:@"8000810884567461"];
     splash.delegate = self; //设置代理
     //根据iPhone设备不同设置不同背景图
-    /*
+    
     if ([[UIScreen mainScreen] bounds].size.height >= 568.0f) {
         splash.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"LaunchImage-568h"]];
     } else {
         splash.backgroundColor = [UIColor colorWithPatternImage:[UIImage
                                                                  imageNamed:@"LaunchImage"]]; }
-     */
+     
     splash.fetchDelay = 6; //开发者可以设置开屏拉取时间,超时则放弃展示
     //[可选]拉取并展示全屏开屏广告
     [splash loadAdAndShowInWindow:self.window];
     self.splash = splash;
-    
+    */
     
     return YES;
 }
@@ -93,6 +94,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [self.splash loadAdAndShowInWindow:self.window];
 }
 
 
